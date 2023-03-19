@@ -1,7 +1,6 @@
 // 发布者
-export default class Publisher {
-
-  constructor(data) {
+class Publisher {
+  constructor() {
     this.viewers = [];
   }
 
@@ -15,3 +14,5 @@ export default class Publisher {
     });
   }
 }
+
+export default Publisher;

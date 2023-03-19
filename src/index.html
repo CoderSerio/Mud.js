@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mue</title>
 </head>
 <body>
-  <div id="app" />
+  <div id="app">
+    <div>{msg}</div>
+    <input type="text" value="{msg}">
+    <div>
+      <button onclick="plus()">+1</button>
+      <span>{cnt}</span>
+    </div>
+    <div map="i:arr"> {i} </div>
+  </div>
 </body>
-<script src="./main.js"></script>
+<script type="module" src="./main.js"></script>
+<script>
+  const plus = () => {
+    mue.data.cnt ++
+  }
+</script>
 </html>
