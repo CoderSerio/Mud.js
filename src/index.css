@@ -1,0 +1,27 @@
+* {
+  color: #ffcdd2;
+  text-align: center;
+  font-family: cursive;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: #e91e63;
+  font-size: 20px;
+}
+
+button {
+  background: #ec407a;
+  border: 1px #f48fb1 solid;
+  border-radius: 4px;
+  cursor: pointer;
+}
