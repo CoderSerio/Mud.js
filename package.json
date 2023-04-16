@@ -1,0 +1,31 @@
+{
+  "name": "@trickle/mud.js",
+  "version": "0.0.1",
+  "description": "a mini ui-build dependency",
+  "module": "src/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoderSerio/mud.git"
+  },
+  "keywords": [
+    "ui-build",
+    "js",
+    "no-runtime-dependencies"
+  ],
+  "author": "2779066456@qq.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CoderSerio/mud/issues"
+  },
+  "homepage": "https://coderserio.github.io/mud/src/index.html",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {}
+}

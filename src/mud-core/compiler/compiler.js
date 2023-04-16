@@ -1,9 +1,9 @@
 import { handleMustache, handleMap } from "./commands.js";
 // 模板编译者
 class Compiler {
-  constructor(mue) {
-    this.mue = mue;
-    this.el = mue.el;
+  constructor(mud) {
+    this.mud = mud;
+    this.el = mud.el;
     this.compile(this.el);
   }
 
@@ -33,14 +33,14 @@ class Compiler {
     allAttributes.forEach((attribute) => {
       // 比如 key="{msg}", key就是attribute.name, {msg}就是attribute.value
       const { name: attKey, value: attValue } = attribute;
-      handleMustache(this.mue, node, attValue, true); // 处理属性插值
-      handleMap(this.mue, node, attribute); // 处理map循环渲染
+      handleMustache(this.mud, node, attValue, true); // 处理属性插值
+      handleMap(this.mud, node, attribute); // 处理map循环渲染
     });
   }
 
   // 处理文本类型DOM
   compileForText(node) {
-    handleMustache(this.mue, node, node.textContent);
+    handleMustache(this.mud, node, node.textContent);
   }
 }
 

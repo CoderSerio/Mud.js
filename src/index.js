@@ -1,9 +1,9 @@
-import Mue from '../mue-core/mue.js';
+import Mud from './mud-core/mud.js';
 
-window.mue = new Mue({
+window.mud = new Mud({
   el: '#app',
   data: {
-    msg: 'Hello MUE!',
+    msg: 'Hello mud!',
     arr: ['Someday', 'I', 'Will', 'Be', 'Like', 'You'],
     cnt: 1,
   },
