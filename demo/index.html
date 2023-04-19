@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mud.js</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div id="app">
+    <div class="title">
+      <h1>Mud.js</h1>
+      <h5>Mini UI-Build Dependcy</h5>
+    </div>
+    <div>
+      <div>{msg}</div>
+      <input type="text" value="{msg}">
+    </div>
+    <div>
+      <div>{cnt}</div>
+      <button onclick="plus()">+1</button>
+    </div>
+    <div map="i:arr"> {i} </div>
+    <div>
+      <a href="https://github.com/CoderSerio/Mud.js" target="_blank">Learn About More</a>
+    </div>
+  </div>
+</body>
+<script type="module" src="./index.js"></script>
+<script>
+  const plus = () => {
+    mue.data.cnt ++
+  }
+</script>
+</html>
