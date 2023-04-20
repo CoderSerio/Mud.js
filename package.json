@@ -12,7 +12,9 @@
   "scripts": {
     "prepare": "husky install",
     "build": "rollup -c",
-    "build: dev": "rollup -c -w"
+    "build:dev": "rollup -c -w",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -32,14 +34,23 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-typescript": "^8.2.1",
+    "@vuepress/client": "2.0.0-beta.61",
+    "@vuepress/core": "^1.9.9",
+    "@vuepress/utils": "2.0.0-alpha.1",
+    "anywhere": "^1.6.0",
     "eslint": "^8.38.0",
+    "eslint-config-vuepress": "^4.1.0",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.5",
     "rollup": "^2.45.1",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "vue": "^3.2.47",
+    "vuepress": "2.0.0-beta.61"
   },
   "hooks": {
     "pre-commit": "npm test && npm run foo"
@@ -47,5 +58,8 @@
   "files": [
     "lib",
     "README.md"
-  ]
+  ],
+  "dependencies": {
+    "@vuepress/plugin-docsearch": "2.0.0-beta.61"
+  }
 }

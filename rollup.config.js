@@ -1,9 +1,7 @@
 import pkg from './package.json';
-
-// 为了将引入的 npm 包，也打包进最终结果中
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-
+import { terser } from 'rollup-plugin-terser';
 // 一段自定义的内容，以下内容会添加到打包结果中
 const footer = `
 if(typeof window !== 'undefined') {
@@ -21,12 +19,14 @@ export default {
     {
       file: pkg.main,
       format: 'cjs',
+      exports: "auto",
       footer,
     },
     {
       file: pkg.browser,
       format: 'umd',
       name: 'Mud',
+      exports: "auto",
       footer,
     },
   ],
@@ -36,5 +36,6 @@ export default {
   plugins: [
     commonjs(),
     resolve(),
+    terser()
   ]
 };
