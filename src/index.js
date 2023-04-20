@@ -1,2 +1,2 @@
 import Mud from './mud-core/mud.js';
-export default Mud;
+export default { Mud };

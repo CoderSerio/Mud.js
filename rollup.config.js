@@ -13,19 +13,28 @@ if(typeof window !== 'undefined') {
 export default {
   input: './src/index.js',
   output: [
-    // {
-    //   file: pkg.main,
-    //   format: 'cjs',
-    //   footer,
-    // },
     {
       file: pkg.module,
       format: 'esm',
       footer,
     },
+    {
+      file: pkg.main,
+      format: 'cjs',
+      footer,
+    },
+    {
+      file: pkg.browser,
+      format: 'umd',
+      name: 'Mud',
+      footer,
+    },
   ],
+  watch: {
+    exclude: 'node_modules/**'
+  },
   plugins: [
     commonjs(),
-    resolve()
+    resolve(),
   ]
 };

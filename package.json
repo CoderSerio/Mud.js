@@ -4,13 +4,15 @@
   "description": "a mini ui-build dependency",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
+  "browser": "lib/browser/index.js",
   "type": "module",
   "directories": {
     "lib": "src"
   },
   "scripts": {
     "prepare": "husky install",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "build: dev": "rollup -c -w"
   },
   "repository": {
     "type": "git",
@@ -41,5 +43,9 @@
   },
   "hooks": {
     "pre-commit": "npm test && npm run foo"
-  }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ]
 }
