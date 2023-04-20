@@ -1,6 +1,6 @@
 {
   "name": "@trickle/mud.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a mini ui-build dependency",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
