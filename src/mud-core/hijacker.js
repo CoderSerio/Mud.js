@@ -9,7 +9,8 @@ class Hijacker {
   hijack(object, key) {
     const publisher = new Publisher();
     let value = object[key];
-    if (!value) {
+    //Tosuke:此处将!value修改
+    if (value===null||value===undefined) {
       return;
     } else if (typeof value === 'object') {
       Object.keys(value).forEach((key) => {

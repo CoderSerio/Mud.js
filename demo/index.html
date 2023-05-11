@@ -19,6 +19,10 @@
       <button onclick="plus()">+1</button>
     </div>
     <div map="i:arr"> {i} </div>
+    <button onclick="isShow()">点击控制显隐</button>
+    <div  m-if="ifShow">
+      Now you see me!
+    </div>
     <div>
       <a href="https://github.com/CoderSerio/Mud.js" target="_blank">Learn About More</a>
     </div>
@@ -28,6 +32,9 @@
 <script>
   const plus = () => {
     mue.data.cnt ++
+  }
+  const isShow = ()=>{
+    mue.data.ifShow = !mue.data.ifShow
   }
 </script>
 </html>

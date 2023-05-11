@@ -1,5 +1,6 @@
 import Viewer from "../viewer.js";
-
+import Publisher from "../publisher.js";
+import {createCommentVNode} from "./util.js"
 export const handleMustache = (mud, node, text, isElementAttribute) => {
   const reg = /\{(.+?)\}/;
   const matchRes = text.match(reg);
@@ -43,3 +44,26 @@ export const handleMap = (mud, node, attribute) => {
     node.innerHTML = allNewContent;
   }
 }; 
+export const handleIf = (mud,node,attribute)=>{
+  const { name, value } = attribute;
+  if (name === 'm-if') {
+    const ifValue = mud.data[value];
+    var newNode = null
+    var handleIf_update = (ifvalue,node)=>{
+      console.log(ifvalue)
+      if(ifvalue){
+        console.log("可以看见")
+        newNode?newNode.parentNode.replaceChild(node,newNode):""
+      } 
+      else{
+        console.log("创造注释节点")
+        newNode = createCommentVNode(node)
+      }
+    }
+    new Viewer(mud, value, handleIf_update,node);
+    handleIf_update(ifValue,node)
+  }else{
+    return
+  }
+  
+}
