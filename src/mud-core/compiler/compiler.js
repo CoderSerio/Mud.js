@@ -1,4 +1,4 @@
-import { handleMustache, handleMap } from "./commands.js";
+import { handleMustache, handleMap, handleIf } from "./commands.js";
 class Compiler {
   constructor(mud) {
     this.mud = mud;
@@ -29,6 +29,7 @@ class Compiler {
       const { name: attKey, value: attValue } = attribute;
       handleMustache(this.mud, node, attValue, true);
       handleMap(this.mud, node, attribute);
+      handleIf(this.mud, node, attribute);
     });
   }
 
