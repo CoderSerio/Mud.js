@@ -7,6 +7,8 @@ window.mud = new Mud({
     msg: 'Hello Mud!',
     arr: ['Someday', 'I', 'Will', 'Be', 'Like', 'You'],
     cnt: 1,
-    ifShow: false
+    ifShow: false,
+    isShow: true,
+    Show:true
   },
 });

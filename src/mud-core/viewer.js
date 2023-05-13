@@ -1,10 +1,13 @@
 import Publisher from "./publisher.js";
+import {addifNodeList} from "./compiler/utils.js"
 class Viewer {
-  constructor(mud, dataKey, updateHandler, node) {
+  constructor(mud, dataKey, updateHandler, node,ifNodeList,num) {
     this.mud = mud;
     this.dataKey = dataKey;
     this.updateHandler = updateHandler;
     this.node = node;
+    this.ifNodeList = ifNodeList
+    this.num = num
     Publisher.viewer = this;
     this.oldValue = mud.data[dataKey];
     Publisher.viewer = null;
@@ -17,8 +20,10 @@ class Viewer {
     }
     //更新数据
     this.oldValue = newValue;
+    let datakey = this.dataKey
+    this.ifNodeList[this.num].datakey= newValue
     if (this.node)
-      this.updateHandler(newValue, this.node);
+      this.updateHandler(this.ifNodeList);
     else
       this.updateHandler(newValue);
   }
