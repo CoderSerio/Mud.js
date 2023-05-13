@@ -1,5 +1,5 @@
 <h1 align="center"> Mud.js </h1>
-<h3 align="center"> Mini UI-Build Dependency </h3>
+<h3 align="center"> Mini UI-Build Dependence </h3>
 <br/>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
@@ -27,6 +27,8 @@ npm run build:dev
 
 npm link @trickle/mud.js
 ```
+
+
 **Method2:**
 
 ```shell

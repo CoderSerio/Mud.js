@@ -1,4 +1,3 @@
-// 发布者
 class Publisher {
   constructor() {
     this.viewers = [];

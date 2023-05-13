@@ -1,6 +1,6 @@
 import Viewer from "../viewer.js";
 import Publisher from "../publisher.js";
-import {createCommentVNode} from "./util.js"
+import { createCommentNode } from "./utils.js";
 export const handleMustache = (mud, node, text, isElementAttribute) => {
   const reg = /\{(.+?)\}/;
   const matchRes = text.match(reg);
@@ -25,10 +25,9 @@ export const handleMustache = (mud, node, text, isElementAttribute) => {
   }
 };
 
-export const handleMap = (mud, node, attribute) => {
+export const handleFor = (mud, node, attribute) => {
   const { name, value } = attribute;
-
-  if (name === 'map') {
+  if (name === 'for') {
     const [iterator, dataKey] = value.split(':');
     const data = mud.data[dataKey];
     const reg = new RegExp(`\{${iterator}\}`);
@@ -43,27 +42,25 @@ export const handleMap = (mud, node, attribute) => {
     }, '');
     node.innerHTML = allNewContent;
   }
-}; 
-export const handleIf = (mud,node,attribute)=>{
+};
+export const handleIf = (mud, node, attribute) => {
   const { name, value } = attribute;
   if (name === 'm-if') {
     const ifValue = mud.data[value];
-    var newNode = null
-    var handleIf_update = (ifvalue,node)=>{
-      console.log(ifvalue)
-      if(ifvalue){
-        console.log("可以看见")
-        newNode?newNode.parentNode.replaceChild(node,newNode):""
-      } 
-      else{
-        console.log("创造注释节点")
-        newNode = createCommentVNode(node)
+    let newNode = null;
+    const handleIfUpdate = (ifValue, node) => {
+      debugger;
+      if (ifValue) {
+        newNode ? newNode.parentNode.replaceChild(node, newNode) : "";
       }
-    }
-    new Viewer(mud, value, handleIf_update,node);
-    handleIf_update(ifValue,node)
-  }else{
-    return
+      else {
+        newNode = createCommentNode(node);
+      }
+    };
+    new Viewer(mud, value, handleIfUpdate, node);
+    handleIfUpdate(ifValue, node);
+  } else {
+    return;
   }
-  
-}
+
+};
