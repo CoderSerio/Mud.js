@@ -1,6 +1,6 @@
 import Viewer from "../viewer.js";
-import Publisher from "../publisher.js";
 import { createCommentNode } from "./utils.js";
+
 export const handleMustache = (mud, node, text, isElementAttribute) => {
   const reg = /\{(.+?)\}/;
   const matchRes = text.match(reg);
@@ -29,10 +29,12 @@ export const handleFor = (mud, node, attribute) => {
   const { name, value } = attribute;
   if (name === 'for') {
     const [iterator, dataKey] = value.split(':');
-    const data = mud.data[dataKey];
+    const forValue = mud.data[dataKey];
     const reg = new RegExp(`\{${iterator}\}`);
+
+    // const handleForUpdate = (forValue, node) => {
     const content = `${node.innerHTML}`;
-    const allNewContent = data?.reduce((all, item) => {
+    const allNewContent = forValue?.reduce((all, item) => {
       let newContent = content;
       const matchRes = content.match(reg);
       if (matchRes) {
@@ -41,15 +43,19 @@ export const handleFor = (mud, node, attribute) => {
       return all + newContent;
     }, '');
     node.innerHTML = allNewContent;
+    // };
+
+    // new Viewer(mud, dataKey, handleForUpdate, node);
+    // handleForUpdate(forValue, node);
   }
 };
+
 export const handleIf = (mud, node, attribute) => {
   const { name, value } = attribute;
   if (name === 'm-if') {
     const ifValue = mud.data[value];
     let newNode = null;
     const handleIfUpdate = (ifValue, node) => {
-      debugger;
       if (ifValue) {
         newNode ? newNode.parentNode.replaceChild(node, newNode) : "";
       }
@@ -59,8 +65,5 @@ export const handleIf = (mud, node, attribute) => {
     };
     new Viewer(mud, value, handleIfUpdate, node);
     handleIfUpdate(ifValue, node);
-  } else {
-    return;
   }
-
 };

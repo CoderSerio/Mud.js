@@ -5,6 +5,7 @@ class Viewer {
     this.dataKey = dataKey;
     this.updateHandler = updateHandler;
     this.node = node;
+
     Publisher.viewer = this;
     this.oldValue = mud.data[dataKey];
     Publisher.viewer = null;
@@ -17,10 +18,11 @@ class Viewer {
     }
     //更新数据
     this.oldValue = newValue;
-    if (this.node)
+    if (this.node) {
       this.updateHandler(newValue, this.node);
-    else
+    } else {
       this.updateHandler(newValue);
+    }
   }
 }
 

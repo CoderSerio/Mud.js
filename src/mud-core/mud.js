@@ -1,10 +1,10 @@
-import Hijacker from '../mud-core/hijacker.js';
-import Compiler from '../mud-core/compiler/compiler.js';
+import Hijacker from './hijacker.js';
+import Compiler from './compiler/compiler.js';
 class Mud {
   constructor(options) {
     this.el = document.querySelector(options.el);
     this.data = options.data;
-    new Hijacker(this.data);
+    new Hijacker(this);
     new Compiler(this);
   }
 }
