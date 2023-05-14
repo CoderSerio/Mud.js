@@ -2,7 +2,6 @@ import Publisher from "../publisher.js";
 import { isObject } from "./utils.js";
 
 class Hijacker {
-
   constructor(mud) {
     this.publisher = new Publisher();
     this.obj2Proxy = new WeakMap();
