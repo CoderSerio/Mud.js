@@ -1,27 +1,32 @@
 import Viewer from "../viewer.js";
-import { createCommentNode } from "./utils.js";
+import { createCommentNode, useDataValue } from "./utils.js";
 
 export const handleMustache = (mud, node, text, isElementAttribute) => {
   const reg = /\{(.+?)\}/;
   const matchRes = text.match(reg);
-  if (matchRes) { // 如果存在 {xxx}
+  if (matchRes) {
     const dataKey = matchRes[1];
-    if (mud.data[dataKey] === 'undefined') {
-      return;
+    const [dataValue, setDataValue] = useDataValue(mud, dataKey);
+    // const dataKey = dataKeys.length > 1 ? dataKeys : dataKeys[0];
+    // const continuousKeys = dataKeys.reduce()
+
+    if (!dataValue) {
+      return dataValue;
     }
-    const update = isElementAttribute ? (text) => {
+    const updateHandler = isElementAttribute ? (text) => {
       node.value = text;
     } : (text) => {
       node.textContent = text;
     };
-    new Viewer(mud, dataKey, update);
+    new Viewer(mud, dataKey, updateHandler);
     if (isElementAttribute) {
       node.addEventListener('input', () => {
-        mud.data[dataKey] = node.value;
+        setDataValue(node.value);
+        // mud.data[dataKey] = node.value;
       });
     }
-    const newText = text.replace(reg, mud.data[dataKey]);
-    update(newText);
+    const newText = text.replace(reg, dataValue);
+    updateHandler(newText);
   }
 };
 
@@ -55,7 +60,7 @@ export const handleIf = (mud, node, attribute) => {
   if (name === 'm-if') {
     const ifValue = mud.data[value];
     let newNode = null;
-    const handleIfUpdate = (ifValue, node) => {
+    const updateHandler = (ifValue, node) => {
       if (ifValue) {
         newNode ? newNode.parentNode.replaceChild(node, newNode) : "";
       }
@@ -63,7 +68,7 @@ export const handleIf = (mud, node, attribute) => {
         newNode = createCommentNode(node);
       }
     };
-    new Viewer(mud, value, handleIfUpdate, node);
-    handleIfUpdate(ifValue, node);
+    new Viewer(mud, value, updateHandler, node);
+    updateHandler(ifValue, node);
   }
 };
