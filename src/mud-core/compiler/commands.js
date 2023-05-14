@@ -1,27 +1,29 @@
-import Viewer from "../viewer.js";
-import Publisher from "../publisher.js";
-import { createCommentNode } from "./utils.js";
+import Viewer from "../viewer/viewer.js";
+import { createCommentNode, useDataValue } from "./utils.js";
+
 export const handleMustache = (mud, node, text, isElementAttribute) => {
   const reg = /\{(.+?)\}/;
   const matchRes = text.match(reg);
-  if (matchRes) { // 如果存在 {xxx}
+  if (matchRes) {
     const dataKey = matchRes[1];
-    if (mud.data[dataKey] === 'undefined') {
-      return;
+    const [dataValue, setDataValue] = useDataValue(mud, dataKey);
+
+    if (!dataValue) {
+      return dataValue;
     }
-    const update = isElementAttribute ? (text) => {
+    const handleUpdate = isElementAttribute ? (text) => {
       node.value = text;
     } : (text) => {
       node.textContent = text;
     };
-    new Viewer(mud, dataKey, update);
+    new Viewer(mud, dataKey, handleUpdate);
     if (isElementAttribute) {
       node.addEventListener('input', () => {
-        mud.data[dataKey] = node.value;
+        setDataValue(node.value);
       });
     }
-    const newText = text.replace(reg, mud.data[dataKey]);
-    update(newText);
+    const newText = text.replace(reg, dataValue);
+    handleUpdate(newText);
   }
 };
 
@@ -29,27 +31,33 @@ export const handleFor = (mud, node, attribute) => {
   const { name, value } = attribute;
   if (name === 'for') {
     const [iterator, dataKey] = value.split(':');
-    const data = mud.data[dataKey];
+    const forValue = mud.data[dataKey];
     const reg = new RegExp(`\{${iterator}\}`);
     const content = `${node.innerHTML}`;
-    const allNewContent = data?.reduce((all, item) => {
-      let newContent = content;
-      const matchRes = content.match(reg);
-      if (matchRes) {
-        newContent = content.replace(reg, item);
-      }
-      return all + newContent;
-    }, '');
-    node.innerHTML = allNewContent;
+
+    const handleUpdate = (forValue, node) => {
+      const allNewContent = forValue?.reduce((all, item) => {
+        let newContent = content;
+        const matchRes = content.match(reg);
+        if (matchRes) {
+          newContent = content.replace(reg, item);
+        }
+        return all + newContent;
+      }, '');
+      node.innerHTML = allNewContent;
+    };
+
+    new Viewer(mud, dataKey, handleUpdate, node);
+    handleUpdate(forValue, node);
   }
 };
+
 export const handleIf = (mud, node, attribute) => {
   const { name, value } = attribute;
   if (name === 'm-if') {
     const ifValue = mud.data[value];
     let newNode = null;
-    const handleIfUpdate = (ifValue, node) => {
-      debugger;
+    const handleUpdate = (ifValue, node) => {
       if (ifValue) {
         newNode ? newNode.parentNode.replaceChild(node, newNode) : "";
       }
@@ -57,10 +65,7 @@ export const handleIf = (mud, node, attribute) => {
         newNode = createCommentNode(node);
       }
     };
-    new Viewer(mud, value, handleIfUpdate, node);
-    handleIfUpdate(ifValue, node);
-  } else {
-    return;
+    new Viewer(mud, value, handleUpdate, node);
+    handleUpdate(ifValue, node);
   }
-
 };

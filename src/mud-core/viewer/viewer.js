@@ -1,10 +1,12 @@
-import Publisher from "./publisher.js";
+import Publisher from "../publisher.js";
+import { isChanged } from "./utils.js";
 class Viewer {
   constructor(mud, dataKey, updateHandler, node) {
     this.mud = mud;
     this.dataKey = dataKey;
     this.updateHandler = updateHandler;
     this.node = node;
+
     Publisher.viewer = this;
     this.oldValue = mud.data[dataKey];
     Publisher.viewer = null;
@@ -12,15 +14,15 @@ class Viewer {
 
   update() {
     const newValue = this.mud.data[this.dataKey];
-    if (this.oldValue === newValue) {
+    if (!isChanged(this.oldValue, newValue)) {
       return;
     }
-    //更新数据
     this.oldValue = newValue;
-    if (this.node)
+    if (this.node) {
       this.updateHandler(newValue, this.node);
-    else
+    } else {
       this.updateHandler(newValue);
+    }
   }
 }
 
