@@ -1,4 +1,5 @@
-import Publisher from "./publisher.js";
+import Publisher from "../publisher.js";
+import { isObject } from "./utils.js";
 
 class Hijacker {
 
@@ -11,22 +12,26 @@ class Hijacker {
   hijack(data) {
     const that = this;
 
-    if (!(data !== null && typeof data === 'object')) {
+    if (!isObject(data)) {
       return data;
     }
 
-    const hijackedData = new Proxy(data, {
+    return new Proxy(data, {
       get(obj, key, proxy) {
-        const res = Reflect.get(obj, key, proxy);
+        const objValue = Reflect.get(obj, key, proxy);
         if (Publisher.viewer) {
           that.publisher.addViewer(Publisher.viewer);
         }
-        // const hijackedData = that.obj2Proxy.get(data);
-        // if (hijackedData) {
-        // return hijackedData;
-        // } else {
-        return that.hijack(res);
-        // }
+        if (isObject(objValue)) {
+          const hijackedValue = that.obj2Proxy.get(objValue);
+          if (hijackedValue) {
+            return hijackedValue;
+          } else {
+            const hijackedValue = that.hijack(objValue);
+            that.obj2Proxy.set(objValue, hijackedValue);
+          }
+        }
+        return objValue;
       },
       set(obj, key, newValue, proxy) {
         const res = Reflect.set(obj, key, newValue, proxy);
@@ -39,9 +44,6 @@ class Hijacker {
         return res;
       }
     });
-
-    this.obj2Proxy.set(data, hijackedData);
-    return hijackedData;
   };
 }
 

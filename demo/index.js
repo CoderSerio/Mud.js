@@ -1,5 +1,4 @@
-// import Mud from '../lib/esm/index.esm.js';
-import Mud from '../src/index.js';
+import Mud from '../lib/esm/index.esm.js';
 
 window.mud = new Mud({
   el: '#app',
