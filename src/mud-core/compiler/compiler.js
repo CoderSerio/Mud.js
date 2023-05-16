@@ -1,4 +1,10 @@
-import { handleMustache, handleFor, handleIf } from "./commands.js";
+import {
+  handleContentMustache,
+  handleAttributeMustache,
+  handleFor,
+  handleIf,
+  handleComponent
+} from "./commands.js";
 class Compiler {
   constructor(mud) {
     this.mud = mud;
@@ -10,7 +16,7 @@ class Compiler {
     const childNodes = el.childNodes;
     const childNodesList = Array.from(childNodes);
 
-    childNodesList.forEach((node,) => {
+    childNodesList.forEach((node) => {
       if (node.nodeType === 1) {
         this.compileForElement(node);
       } else if (node.nodeType === 3) {
@@ -26,15 +32,16 @@ class Compiler {
     const allAttributes = Array.from(node.attributes);
 
     allAttributes.forEach((attribute) => {
-      const { name: attKey, value: attValue } = attribute;
-      handleMustache(this.mud, node, attValue, true);
+      handleAttributeMustache(this.mud, node, attribute);
       handleFor(this.mud, node, attribute);
       handleIf(this.mud, node, attribute);
     });
+
+    handleComponent(this.mud, node);
   }
 
   compileForText(node) {
-    handleMustache(this.mud, node, node.textContent, false);
+    handleContentMustache(this.mud, node, node.textContent);
   }
 }
 
