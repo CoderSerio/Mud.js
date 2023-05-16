@@ -21,6 +21,9 @@ export const addifNodeList = (node,name,value)=>{
         value:value
       })
     function add(node) {
+    if(node.nextElementSibling.attributes[0] ===undefined ){
+      return nodeList
+    }
     const { name, value } = node.nextElementSibling.attributes[0]
     if(name==="else-if"){
       nodeList.push({
@@ -41,6 +44,7 @@ export const addifNodeList = (node,name,value)=>{
       return nodeList
     }
     }
+    
     return add(node)
     
   }

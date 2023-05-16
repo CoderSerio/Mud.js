@@ -56,6 +56,56 @@ export const handleIf = (mud, node, attribute) => {
   const handleIfUpdate = (ifNodeList) => {
     let num = ifNodeList.length;
     if(ifNodeList[num-1].name!="else"){
+      for (let key = 0 ;key<num;key++) {
+        const ifValue = mud.data[ifNodeList[key].value];
+        //ifValue为每一项的值
+        if(key===0){
+          //判断if
+          if (ifValue) {
+            if(myMap.get(oldList[key])){
+              returnNode(ifNodeList[key].node,oldList[key])
+              myMap.set(oldList[key],false)
+             //恢复为原值并修改记录表状态
+            }
+            //判断自己是否被注释，如果是则显示
+            for(let i =1 ;i<num;i++){
+              oldList[i] = createCommentNode(ifNodeList[i].node,oldList[i])
+              myMap.set(oldList[i],true)
+            }
+            break;
+            //其余全部注释
+          }
+          else {
+            oldList[key] =createCommentNode(ifNodeList[key].node,oldList[key]);
+            myMap.set(oldList[key],true)
+            //注释自己
+          }
+        }
+        else{
+          if (ifValue) {
+            if(myMap.get(oldList[key])){
+              returnNode(ifNodeList[key].node,oldList[key])
+              myMap.set(oldList[key],false)
+              console.log("其他恢复")
+            }
+           
+            for(let i=key+1;i<num;i++){
+              // createCommentNode(ifNodeList[i].node)
+              oldList[i] = createCommentNode(ifNodeList[i].node,oldList[i])
+              myMap.set(oldList[i],true)
+            }
+            break;
+            //其余全部注释
+          }
+          else {
+            oldList[key] =createCommentNode(ifNodeList[key].node,oldList[key]);
+            myMap.set(oldList[key],true)
+            // createCommentNode(ifNodeList[key].node);
+            //注释自己
+          }
+        }
+        
+      }
       console.log("wuelse")
     }else{
       for (let key = 0 ;key<num;key++) {
