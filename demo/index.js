@@ -1,11 +1,15 @@
 import Mud from '../lib/esm/index.esm.js';
 
-window.mud = new Mud({
+new Mud({
   el: '#app',
   data: {
     msg: 'Hello Mud!',
-    arr: ['Someday', 'I', 'Will', 'Be', 'Like', 'You'],
     cnt: 1,
-    ifShow: false,
+    a: {
+      b: 1
+    }
   },
+  components: {
+    home: 'components/home/index.html'
+  }
 });
