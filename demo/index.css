@@ -14,7 +14,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
   background: #e91e63;
   font-size: 24px;
+}
+
+h1,
+h5 {
+  margin: 12px;
+}
+
+button {
+  background: #ec407a;
+  padding: 4px 24px;
+  font-size: 20px;
+  border: 1px #f48fb1 solid;
+  border-radius: 4px;
+  cursor: pointer;
 }
