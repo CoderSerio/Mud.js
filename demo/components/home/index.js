@@ -1,4 +1,4 @@
-// import Mud from '../lib/esm/index.esm.js';
+// import Mud from '../../../lib/esm/index.esm.js';
 import Mud from '../../../src/index.js';
 
 new Mud({

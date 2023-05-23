@@ -1,13 +1,15 @@
-import Mud from '../lib/esm/index.esm.js';
+// import Mud from '../lib/esm/index.esm.js';
+import Mud from '../src/index.js';
 
 new Mud({
   el: '#app',
   data: {
-    msg: 'Hello Mud!',
     cnt: 1,
     a: {
-      b: 1
-    }
+      b: {
+        c: 1
+      },
+    },
   },
   components: {
     home: 'components/home/index.html'

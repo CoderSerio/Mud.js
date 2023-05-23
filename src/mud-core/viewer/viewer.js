@@ -1,5 +1,6 @@
 import Publisher from "../publisher.js";
 import { isChanged } from "./utils.js";
+import { useDataValue } from "../common/utils.js";
 class Viewer {
   constructor(mud, dataKey, updateHandler, node) {
     this.mud = mud;
@@ -8,21 +9,17 @@ class Viewer {
     this.node = node;
 
     Publisher.viewer = this;
-    this.oldValue = mud.data[dataKey];
+    this.oldValue = useDataValue(mud, dataKey)[0];
     Publisher.viewer = null;
   }
 
   update() {
-    const newValue = this.mud.data[this.dataKey];
+    const newValue = useDataValue(this.mud, this.dataKey)[0];
     if (!isChanged(this.oldValue, newValue)) {
       return;
     }
     this.oldValue = newValue;
-    if (this.node) {
-      this.updateHandler(newValue, this.node);
-    } else {
-      this.updateHandler(newValue);
-    }
+    this.updateHandler(newValue, this.node);
   }
 }
 

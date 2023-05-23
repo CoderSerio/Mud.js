@@ -1,9 +1,9 @@
 # Introduction
 
-Mud is a mini ui-build dependency!
+Mud is a mini ui-build dependence!
 
-## Hello 
+## TODO
 
-Hello Mud.js!
+English document is being written...
 
 
