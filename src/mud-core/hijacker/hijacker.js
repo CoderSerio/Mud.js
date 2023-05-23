@@ -35,7 +35,6 @@ class Hijacker {
       set(obj, key, newValue, proxy) {
         const res = Reflect.set(obj, key, newValue, proxy);
         that.publisher.publish();
-
         return res;
       },
       deleteProperty(obj, key) {

@@ -2,17 +2,17 @@ import Viewer from "../viewer/viewer.js";
 import { createCommentNode } from "./utils.js";
 import { useDataValue } from '../common/utils.js';
 
-export const handleAttributeMustache = (mud, node, attribute, isElementAttribute) => {
+export const handleAttributeMustache = (mud, node, attribute) => {
   const { name: attKey, value: attValue } = attribute;
   if (attKey === 'props') {
     return;
   }
   const reg = /\{(.+?)\}/;
   const matchRes = attValue?.match(reg);
+
   if (matchRes) {
     const dataKey = matchRes[1];
     const [dataValue, setDataValue] = useDataValue(mud, dataKey);
-
     if (dataValue === undefined) {
       return;
     }
@@ -38,13 +38,12 @@ export const handleContentMustache = (mud, node, text) => {
     if (dataValue === undefined) {
       return;
     }
-    const handleUpdate = (text) => {
-      node.textContent = text;
+    const handleUpdate = (newValue) => {
+      node.textContent = text.replace(reg, newValue);
     };
     new Viewer(mud, dataKey, handleUpdate);
 
-    const newText = text.replace(reg, dataValue);
-    handleUpdate(newText);
+    handleUpdate(dataValue);
   }
 };
 
@@ -76,7 +75,7 @@ export const handleFor = (mud, node, attribute) => {
 
 export const handleIf = (mud, node, attribute) => {
   const { name, value } = attribute;
-  if (name === 'm-if') {
+  if (name === 'if') {
     const ifValue = mud.data[value];
     let newNode = null;
     const handleUpdate = (ifValue, node) => {
@@ -103,8 +102,8 @@ export const handleComponent = (mud, node) => {
 
   const handleIframeUpdate = () => {
     const iDocument = iframe.contentDocument;
-    iframe.width = iDocument?.body?.offsetWidth ?? 0;
-    iframe.height = iDocument?.body?.scrollHeight ?? 0;
+    iframe.width = iDocument?.body?.offsetWidth || 0;
+    iframe.height = iDocument?.body?.scrollHeight || 0;
   };
 
   const reg = /\{(.+?)\}/;
@@ -125,12 +124,15 @@ export const handleComponent = (mud, node) => {
         const pairArr = pair.trim().split(':');
         const dataNewName = pairArr[0];
         const dataKey = pairArr[1] ?? dataNewName;
-        iWindow.mud.data[dataNewName] = mud.data?.[dataKey];
+        const [dataValue, setDataValue] = useDataValue(mud, dataKey);
+
+        iWindow.mud.data[dataNewName] = dataValue;
+        // mud.data?.[dataKey];
         new Viewer(mud, dataKey, (newValue) => {
           iWindow.mud.data[dataNewName] = newValue;
         });
         iWindow.mud.watch(dataNewName, (newValue) => {
-          mud.data[dataKey] = newValue;
+          setDataValue(newValue);
         });
       });
     }
