@@ -1,5 +1,4 @@
-// import Mud from '../../../lib/esm/index.esm.js';
-import Mud from '../../../src/index.js';
+import Mud from '../../../lib/esm/index.esm.js';
 
 new Mud({
   el: '#home',
@@ -8,6 +7,5 @@ new Mud({
     arr: ['Someday', 'I', 'Will', 'Be', 'Like', 'You'],
     cnt: '',
     ifShow: false,
-    test: '',
   },
 });

@@ -38,13 +38,12 @@ export const handleContentMustache = (mud, node, text) => {
     if (dataValue === undefined) {
       return;
     }
-    const handleUpdate = (text) => {
-      node.textContent = text;
+    const handleUpdate = (newValue) => {
+      node.textContent = text.replace(reg, newValue);
     };
     new Viewer(mud, dataKey, handleUpdate);
 
-    const newText = text.replace(reg, dataValue);
-    handleUpdate(newText);
+    handleUpdate(dataValue);
   }
 };
 
@@ -125,12 +124,15 @@ export const handleComponent = (mud, node) => {
         const pairArr = pair.trim().split(':');
         const dataNewName = pairArr[0];
         const dataKey = pairArr[1] ?? dataNewName;
-        iWindow.mud.data[dataNewName] = mud.data?.[dataKey];
+        const [dataValue, setDataValue] = useDataValue(mud, dataKey);
+
+        iWindow.mud.data[dataNewName] = dataValue;
+        // mud.data?.[dataKey];
         new Viewer(mud, dataKey, (newValue) => {
           iWindow.mud.data[dataNewName] = newValue;
         });
         iWindow.mud.watch(dataNewName, (newValue) => {
-          mud.data[dataKey] = newValue;
+          setDataValue(newValue);
         });
       });
     }

@@ -11,25 +11,14 @@
       <h5>Mini UI-Build Dependence</h5>
     </div>
     <home style="width: 100%;" props="{cnt}"></home>
-    <!-- <div>{cnt}</div>
-    <button onclick="plus()">+1</button> -->
-
-    <div>{a.b.c}</div>
     <div>{cnt}</div>
-
+    <button onclick="plus()">+1</button>
+    
   </div>
 </body>
 </html>
 <script type="module" src="./index.js"></script>
 <script>
-  setInterval(() => {
-    // mud.data.a.b.c ++
-    // console.log(mud.data)
-    mud.data.cnt ++
-    mud.data.a.b.c = 2
-  }, 1000)
-    
-    
   const plus = () => {
     mud.data.cnt ++
   }
