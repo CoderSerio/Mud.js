@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: akhilmhdh/contributors-readme-action@v2.3.6
+        with:
+          image_size: 50
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
       - uses: actions/checkout@v3
         with:
           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录

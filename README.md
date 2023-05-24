@@ -10,26 +10,59 @@
 
 
 
-## About
-<div> Quickly build light web applications with Mud.js !</div>
+## Introduction
+<h3> Quickly build light web applications with Mud.js !</h3>
 
-✨ [👉 Click Here to Preview ！👈](https://coderserio.github.io/Mud.js/demo/index.html) ✨
+You can learn about Mud.js more by ✨ [👉 Clicking 👈](https://coderserio.github.io/Mud.js) ✨
 
 <br/>
 
-## Development
+## Getting Started
 
-**Method1:**
-```shell
-npm link
+```bash
+# Install project builder
+npm i @trickle/mud-cli -g
 
-npm run build:dev
-
-npm link @trickle/mud.js
+# Create a mud project
+mud-cli create <name>
 ```
 
 
-**Method2:**
+
+
+
+## Development
+When developing Mud.js, Here are some usual methods to make program execution result more intuitive:
+
+
+
+**Method 0**
+
+The most simple way is setting `src` of `<script>` to the entry file path, like this:
+
+```html
+<script type="module" src="../src/index/js"></script>
+```
+
+Or do the same thing for the import path, like this: 
+
+```js
+import Mud from '../src/index/js'
+```
+
+
+**Method 1**
+
+Build the package and start a dev-server with `rollup` for hot module replace:
+
+```shell
+npm run build:dev
+```
+
+
+**Method 2**
+
+Use `yalc` to simulate publishing npm package:
 
 ```shell
 npm i yalc -g
@@ -38,6 +71,15 @@ yalc publish
 
 yalc add @trickle/mud.js
 
-# update
+# update the package
 yalc push
 ```
+## Contributors
+
+Thanks for all people mentioned below:
+<!-- readme: collaborators,contributors -start -->
+<!-- readme: collaborators,contributors -end -->
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
