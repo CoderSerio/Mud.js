@@ -22,30 +22,11 @@ footer: MIT Licensed | Copyright © 2023-present Serio
 
 ### 安装
 
-<CodeGroup>
-<CodeGroupItem title="PNPM" active>
-
 ```bash
-pnpm i @trickle/mud.js
+# 安装项目脚手架
+npm i @trickle/mud-cli -g
+
+# 使用脚手架快速构建项目
+mud-cli create <name>
 ```
 
-</CodeGroupItem>
-
-<CodeGroupItem title="YARN">
-
-```bash
-yarn add @trickle/mud.js
-
-```
-
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
-  
-```bash
-npm install @trickle/mud.js
-
-```
-
-  </CodeGroupItem>
-</CodeGroup>

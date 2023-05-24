@@ -1,17 +1,71 @@
-# 概览
+# 文档
 
-## 简介
+## 概览
+### 简介
 
-### 什么是Mud?
-Mud 是一个用于快速构建`Web UI`的小型库！在语法上参考了Vue和React(JSX)等，而在实现上则参考了Svelte等。
+`Mud.js`是一个用于快速构建**Web UI**的小型库！
 
-> 所以你或许会觉得Mud是一个熟悉的陌生人
+Mud在语法和底层实现上参考了`Vue`、`React(JSX)`、`Svelte`和`Wujie`等优秀的库/框架，并且尽可能地降低初学者的学习成本！
 
-Mud的上手难度会远低于上述几个框架！只需要非常基本的HTML、CSS和JS基础即可快速构建一个小型Web应用。
+只需要了解非常基本的HTML、CSS和JS知识，通过`Mud.js`即可快速构建轻型Web应用。
+
+> 你或许会觉得Mud是一个熟悉的陌生人！
 
 
-### 为什么要做Mud？
+### 快速开始
 
-最早是在学习一些JS库的源码过程中做的一点实践。但后来突然觉得要是完全按照既有的思路重复造轮子意义不大，并且或许我们能够在一些场景下给出更好的实现，所以便有了现在的Mud。
+推荐使用脚手架工具直接构建工程化模板：
 
-## 快速开始
+```bash
+# 安装项目脚手架
+npm i @trickle/mud-cli -g
+
+# 使用脚手架快速构建项目
+mud-cli create <name>
+```
+
+也可以在项目单独安装`Mud.js`的核心库来满足不同的场景需求：
+
+> 目前提供了UMD, CJS和ESM三种模块化类型的包！
+
+<CodeGroup>
+<CodeGroupItem title="PNPM" active>
+
+```bash
+pnpm i @trickle/mud.js
+```
+
+</CodeGroupItem>
+
+<CodeGroupItem title="YARN">
+
+```bash
+yarn add @trickle/mud.js
+```
+
+</CodeGroupItem>
+
+<CodeGroupItem title="NPM">
+  
+```bash
+npm install @trickle/mud.js
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+## 基础能力
+
+### Mud核心类
+
+### 插值语法
+
+### 条件渲染
+
+### 循环渲染
+
+
+### 组件
+
+
+### 生命周期

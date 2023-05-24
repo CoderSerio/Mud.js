@@ -1,7 +1,7 @@
 export const sidebarZh = {
   '/zh/guide/': [
     {
-      text: '指南',
+      text: '',
       children: [
         '/zh/guide/README.md',
       ],

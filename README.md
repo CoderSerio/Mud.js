@@ -53,7 +53,7 @@ import Mud from '../src/index/js'
 
 **Method 1**
 
-Build the package and start a dev-server with `rollup` for hot module replace:
+Build the package and start a dev-server with `rollup` for hot module replacement:
 
 ```shell
 npm run build:dev
