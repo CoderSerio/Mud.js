@@ -14,7 +14,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 export default defineUserConfig({
   // set site base to default value
-  base: '/',
+  base: '/Mud.js/',
 
   // extra tags in `<head>`
   head,

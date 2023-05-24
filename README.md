@@ -2,7 +2,7 @@
 <h3 align="center"> Mini UI-Build Dependence </h3>
 <br/>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.2.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
@@ -13,7 +13,7 @@
 ## About
 <div> Quickly build light web applications with Mud.js !</div>
 
-✨ [👉 Click Here to Preview ！👈](https://coderserio.github.io/Mud.js/demo/index.html)
+✨ [👉 Click Here to Preview ！👈](https://coderserio.github.io/Mud.js/demo/index.html) ✨
 
 <br/>
 
