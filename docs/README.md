@@ -35,17 +35,15 @@ pnpm i @trickle/mud.js
 
 ```bash
 yarn add @trickle/mud.js
-
 ```
 
-  </CodeGroupItem>
+</CodeGroupItem>
 
-  <CodeGroupItem title="NPM">
+<CodeGroupItem title="NPM">
   
 ```bash
 npm install @trickle/mud.js
-
 ```
 
-  </CodeGroupItem>
+</CodeGroupItem>
 </CodeGroup>
