@@ -275,8 +275,8 @@ npm install @trickle/mud.js
 
 ```html
 <div id="app">
-  <component props={msg}></component>
-  <component props={msg}></component>
+  <component props="{msg}"></component>
+  <component props="{msg}"></component>
 </div>
 
 <script type="module">
@@ -316,7 +316,7 @@ npm install @trickle/mud.js
 当然，支持传递多个参数以及重命名字段避免冲突：
 
 ```html
-<component props={msg, data:name}></component>
+<component props="{msg, data:name}"></component>
 ```
 
 
