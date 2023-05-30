@@ -51,7 +51,7 @@ export const handleContentMustache = (mud, node, text) => {
 export const handleFor = (mud, node, attribute) => {
   const { name, value } = attribute;
   if (name === 'for') {
-    const [iterator, dataKey] = value.split(':');
+    const [iterator, dataKey] = value.split(':').map(item => item?.trim());
     const forValue = mud.data[dataKey];
     const reg = new RegExp(`\{${iterator}\}`);
     const content = `${node.innerHTML}`;

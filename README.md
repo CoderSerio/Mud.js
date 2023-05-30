@@ -44,7 +44,7 @@ The most simple way is setting `src` of `<script>` to the entry file path, like 
 <script type="module" src="../src/index/js"></script>
 ```
 
-Or do the same thing for the import path, like this: 
+Or do the same thing like this: 
 
 ```js
 import Mud from '../src/index/js'
@@ -71,9 +71,21 @@ yalc publish
 
 yalc add @trickle/mud.js
 
-# update the package
+# Update the package
 yalc push
 ```
+
+Publish new version:
+
+```shell
+# Generate change-set file
+npx changeset
+
+# Update version
+npx changeset version
+```
+
+
 ## Contributors
 
 Thanks for all people mentioned below:

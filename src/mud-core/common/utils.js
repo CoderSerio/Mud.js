@@ -17,3 +17,19 @@ export const useDataValue = (mud, keyStr) => {
     }];
   }
 };
+
+export const clone = (value) => {
+  const type = typeof value;
+  if (type === 'object') {
+    if (Array.isArray(value)) {
+      return Array.from(value);
+    } else {
+      const obj = {};
+      Object.keys(value)?.forEach((key) => {
+        obj[key] = clone(obj[key]);
+      });
+      return obj;
+    }
+  }
+  return value;
+};

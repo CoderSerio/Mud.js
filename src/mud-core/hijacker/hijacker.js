@@ -1,4 +1,4 @@
-import Publisher from "../publisher.js";
+import Publisher from "../publisher/publisher.js";
 import { isObject } from "./utils.js";
 
 class Hijacker {

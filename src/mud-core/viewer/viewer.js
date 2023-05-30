@@ -1,6 +1,6 @@
-import Publisher from "../publisher.js";
+import Publisher from "../publisher/publisher.js";
 import { isChanged } from "./utils.js";
-import { useDataValue } from "../common/utils.js";
+import { useDataValue, clone } from "../common/utils.js";
 class Viewer {
   constructor(mud, dataKey, updateHandler, node) {
     this.mud = mud;
@@ -9,7 +9,7 @@ class Viewer {
     this.node = node;
 
     Publisher.viewer = this;
-    this.oldValue = useDataValue(mud, dataKey)[0];
+    this.oldValue = clone(useDataValue(mud, dataKey)[0]);
     Publisher.viewer = null;
   }
 
@@ -18,7 +18,7 @@ class Viewer {
     if (!isChanged(this.oldValue, newValue)) {
       return;
     }
-    this.oldValue = newValue;
+    this.oldValue = clone(newValue);
     this.updateHandler(newValue, this.node);
   }
 }

@@ -1,6 +1,6 @@
-import Hijacker from './hijacker/hijacker.js';
-import Compiler from './compiler/compiler.js';
-import Viewer from './viewer/viewer.js';
+import Hijacker from '../hijacker/hijacker.js';
+import Compiler from '../compiler/compiler.js';
+import Viewer from '../viewer/viewer.js';
 class Mud {
   constructor(options) {
     window.mud = this;
@@ -12,6 +12,7 @@ class Mud {
     };
     new Hijacker(this);
     new Compiler(this);
+    options.onMount?.();
   }
 }
 
