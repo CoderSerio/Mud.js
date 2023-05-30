@@ -8,5 +8,8 @@ new Mud({
   },
   components: {
     home: 'components/home/index.html',
+  },
+  onMount: () => {
+    console.log(mud.data.msg);
   }
 });
