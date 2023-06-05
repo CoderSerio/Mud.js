@@ -10,8 +10,9 @@
       <h1>Mud.js</h1>
       <h5>Mini UI-Build Dependence</h5>
     </div>
+    <home style="width: 100%;" props="{cnt}"></home>
     <div>
-      <div>{msg}</div>
+      <div>{cnt}</div>
       <input type="text" value="{msg}">
     </div>
     <div>
@@ -20,27 +21,25 @@
     </div>
     <div for="i:arr"> {i} </div>
     <div class="button">
-    <button onclick="isShow()">if?</button>
-    <button onclick="isShow1()">else if 1?</button>
-    <button onclick="isShow2()">else if 2?</button>
-  </div>
-    <div  if="ifShow">
-      I Am One.Now You See Me!
+      <button onclick="isShow()">if?</button>
+      <button onclick="isShow1()">else if 1?</button>
+      <button onclick="isShow2()">else if 2?</button>
     </div>
-    <div else-if="isShow">
-      I Am Two.Now You See Me!
-    </div>
-    <div else-if="Show">
-      I Am Three.Now You See Me!
-    </div>
-    <!-- <div else>
-      I Am Four.Now You See Me!
-    </div> -->
+      <div  if="ifShow">
+        I Am One.Now You See Me!
+      </div>
+      <div else-if="isShow">
+        I Am Two.Now You See Me!
+      </div>
+      <div else-if="Show">
+        I Am Three.Now You See Me!
+      </div>
     <div>
       <a href="https://github.com/CoderSerio/Mud.js" target="_blank">Learn About More</a>
     </div>
   </div>
 </body>
+</html>
 <script type="module" src="./index.js"></script>
 <script>
   const plus = () => {

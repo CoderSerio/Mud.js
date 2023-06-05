@@ -1,0 +1,65 @@
+<div id="home">
+  <div>
+    <div>{msg}</div>
+    <input value="{msg}">
+  </div>
+  <div>
+    <div>{cnt}</div>
+    <button onclick="plus()">+1</button>
+  </div>
+  <div for="i:arr"> {i} </div>
+  <button onclick="isShow()">Show?</button>
+  <div if="ifShow">
+    Now You See Me!
+  </div>
+  <div>
+    <a href="https://github.com/CoderSerio/Mud.js" target="_blank">Learn About More</a>
+  </div>
+</div>
+
+<script type="module" src="./index.js"></script>
+<script>
+  const plus = () => {
+    mud.data.cnt ++
+  }
+  const isShow = ()=>{
+    mud.data.ifShow = !mud.data.ifShow
+  }
+</script>
+
+<style>
+* {
+  color: #ffcdd2;
+  text-align: center;
+  font-family: cursive;
+  font-size: 24px;
+  margin: 6px;
+}
+
+input {
+  border-radius: 4px;
+  border: 0;
+  outline: 3px solid #f48fb1;
+  box-shadow: 1px 1px 2px 1px #f48fb1;
+  color: #ec407a;
+}
+
+input {
+  border-radius: 4px;
+  border: 0;
+  outline: 3px solid #f48fb1;
+  box-shadow: 1px 1px 2px 1px #f48fb1;
+  color: #ec407a;
+}
+
+button {
+  background: #ec407a;
+  padding: 4px 24px;
+  font-size: 20px;
+  border: 1px #f48fb1 solid;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+</style>
+

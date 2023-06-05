@@ -1,14 +1,18 @@
-// import Mud from '../lib/esm/index.esm.js';
-import Mud from '../src/index.js';
+import Mud from '../lib/esm/index.esm.js';
 
-window.mud = new Mud({
+new Mud({
   el: '#app',
   data: {
-    msg: 'Hello Mud!',
-    arr: ['Someday', 'I', 'Will', 'Be', 'Like', 'You'],
+    msg: 'Hello',
     cnt: 1,
     ifShow: false,
     isShow: true,
     Show:true
   },
+  components: {
+    home: 'components/home/index.html',
+  },
+  onMount: () => {
+    console.log(mud.data.msg);
+  }
 });

@@ -1,49 +1,57 @@
-name: mud
+name: docs
 
 on:
+  # 每当 push 到 main 分支时触发部署
   push:
-    tags: 
-      - '*'           # Push events to every tag not containing /
-  pull_request:
-    branches:
-      - master
-  workflow_dispatch:       # 设置手动触发，参考文档 https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/
+    branches: [master]
+  # 手动触发部署
+  workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-18.04
+  docs:
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2   # 将我们提交的代码 checkout (拷贝) 一份出来
+      - uses: akhilmhdh/contributors-readme-action@v2.3.6
         with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+          image_size: 50
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - uses: actions/checkout@v3
+        with:
+          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
+          fetch-depth: 0
 
-      - uses: actions/setup-node@v1  # 会建立 node 环境，便于我们执行 node 脚本
-      - uses: actions/cache@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      # - name: check code   # 检查代码
-      #   run: |
-      #     npm install
-      #     npm run lint
-      #     npm run test
+          # 选择要使用的 pnpm 版本
+          version: 7
+          # 使用 pnpm 安装依赖
+          run_install: true
 
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-      - name: publish                          # 发布 npm 包
-        if: ${{contains(github.ref, 'refs/tags/')}}  # 如果有新 tag
-        run: |
-          npm run build
-          npm run build:types
-          npm run docs:build
-          npm publish --access public
-      - name: deploy                          # 发布文档
-        if: ${{contains(github.ref, 'refs/tags/')}}
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          branch: doc-page
-          
-           # The branch the action should deploy to.
-          folder: docs/.vuepress/dist # The folder the action should deploy.
+          # 选择要使用的 node 版本
+          node-version: 18
+          # 缓存 pnpm 依赖
+          cache: pnpm
+
+      # 运行构建脚本
+      - name: Build VuePress site
+        run: pnpm docs:build
+
+      # 查看 workflow 的文档来获取更多信息
+      # @see https://github.com/crazy-max/ghaction-github-pages
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          # 部署到 gh-pages 分支
+          target_branch: gh-pages
+          # 部署目录为 VuePress 的默认输出目录
+          build_dir: docs/.vuepress/dist
+        env:
+          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
