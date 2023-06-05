@@ -20,11 +20,12 @@ class Viewer {
     if (!isChanged(this.oldValue, newValue)) {
       return;
     }
-
+    if(this.ifNodeList){
     this.oldValue = newValue;
     let datakey = this.dataKey
     this.ifNodeList[this.num].datakey= newValue
-
+    }
+    //针对if节点列表的处理
     if (this.node)
     this.updateHandler(this.ifNodeList);
     else{

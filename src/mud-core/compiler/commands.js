@@ -1,7 +1,7 @@
-import Viewer from "../viewer.js";
+import Viewer from "../viewer/viewer.js";
 import { createCommentNode,addifNodeList,returnNode } from "./utils.js";
 import { useDataValue } from '../common/utils.js';
-export const handleMustache = (mud, node,attribute) => {
+export const handleAttributeMustache = (mud, node,attribute) => {
   const { name: attKey, value: attValue } = attribute;
   if (attKey === 'props') {
     return;

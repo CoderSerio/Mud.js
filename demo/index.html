@@ -12,27 +12,28 @@
     </div>
     <home style="width: 100%;" props="{cnt}"></home>
     <div>
-      <div>{cnt}</div>
-      <input type="text" value="{msg}">
+      <input type="text" value="{cnt}"/>
     </div>
     <div>
       <div>{cnt}</div>
       <button onclick="plus()">+1</button>
     </div>
-    <div for="i:arr"> {i} </div>
     <div class="button">
       <button onclick="isShow()">if?</button>
       <button onclick="isShow1()">else if 1?</button>
       <button onclick="isShow2()">else if 2?</button>
     </div>
       <div  if="ifShow">
-        I Am One.Now You See Me!
+        I Am If.Now You See Me!
       </div>
       <div else-if="isShow">
-        I Am Two.Now You See Me!
+        I Am Else-if-1.Now You See Me!
       </div>
       <div else-if="Show">
-        I Am Three.Now You See Me!
+        I Am Else-if-2.Now You See Me!
+      </div>
+      <div else>
+        I Am Else.Now You See Me!
       </div>
     <div>
       <a href="https://github.com/CoderSerio/Mud.js" target="_blank">Learn About More</a>
