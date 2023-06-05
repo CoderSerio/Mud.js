@@ -2,11 +2,13 @@ import Publisher from "../publisher/publisher.js";
 import { isChanged } from "./utils.js";
 import { useDataValue, clone } from "../common/utils.js";
 class Viewer {
-  constructor(mud, dataKey, updateHandler, node) {
+  constructor(mud, dataKey, updateHandler, node,ifNodeList,num) {
     this.mud = mud;
     this.dataKey = dataKey;
     this.updateHandler = updateHandler;
     this.node = node;
+    this.ifNodeList = ifNodeList
+    this.num = num
 
     Publisher.viewer = this;
     this.oldValue = clone(useDataValue(mud, dataKey)[0]);
@@ -18,8 +20,18 @@ class Viewer {
     if (!isChanged(this.oldValue, newValue)) {
       return;
     }
-    this.oldValue = clone(newValue);
-    this.updateHandler(newValue, this.node);
+
+    this.oldValue = newValue;
+    let datakey = this.dataKey
+    this.ifNodeList[this.num].datakey= newValue
+
+    if (this.node)
+    this.updateHandler(this.ifNodeList);
+    else{
+      this.oldValue = clone(newValue);
+      this.updateHandler(newValue, this.node);
+    }
+   
   }
 }
 
