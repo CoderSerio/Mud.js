@@ -4,6 +4,7 @@ new Mud({
   el: '#app',
   data: {
     msg: 'Hello',
+    msg: 'Hello',
     cnt: 1,
     ifShow: false,
     isShow: true,
@@ -15,4 +16,8 @@ new Mud({
   onMount: () => {
     console.log(mud.data.msg);
   }
+  onMount: () => {
+    console.log(mud.data.msg);
+  }
 });
+
