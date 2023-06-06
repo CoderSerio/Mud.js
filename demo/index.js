@@ -1,5 +1,5 @@
-// import Mud from '../lib/esm/index.esm.js';
-import Mud from '../src/mud-core/mud/mud.js'
+import Mud from '../lib/esm/index.esm.js';
+// import Mud from '../src/mud-core/mud/mud.js'
 new Mud({
   el: '#app',
   data: {
