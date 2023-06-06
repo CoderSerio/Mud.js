@@ -10,50 +10,14 @@
       <h1>Mud.js</h1>
       <h5>Mini UI-Build Dependence</h5>
     </div>
-    <home style="width: 100%;" props="{cnt}"></home>
-    <div>
-      <input type="text" value="{cnt}"/>
-    </div>
-    <div>
-      <div>{cnt}</div>
-      <button onclick="plus()">+1</button>
-    </div>
-    <div class="button">
-      <button onclick="isShow()">if?</button>
-      <button onclick="isShow1()">else if 1?</button>
-      <button onclick="isShow2()">else if 2?</button>
-    </div>
-      <div  if="ifShow">
-        I Am If.Now You See Me!
-      </div>
-      <div else-if="isShow">
-        I Am Else-if-1.Now You See Me!
-      </div>
-      <div else-if="Show">
-        I Am Else-if-2.Now You See Me!
-      </div>
-      <div else>
-        I Am Else.Now You See Me!
-      </div>
-    <div>
-      <a href="https://github.com/CoderSerio/Mud.js" target="_blank">Learn About More</a>
-    </div>
+    <div>{msg}</div>
+    <home style="width: 100%;" props="{cnt, msg}"></home>
   </div>
 </body>
-</html>
 </html>
 <script type="module" src="./index.js"></script>
 <script>
   const plus = () => {
     mud.data.cnt ++
-  }
-  const isShow = ()=>{
-    mud.data.ifShow = !mud.data.ifShow
-  }
-  const isShow1 = ()=>{
-    mud.data.isShow = !mud.data.isShow
-  }
-  const isShow2 = ()=>{
-    mud.data.Show = !mud.data.Show
   }
 </script>
