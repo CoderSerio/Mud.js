@@ -1,16 +1,21 @@
 <div id="home">
-  <div>
-    <div>{msg}</div>
-    <input value="{msg}">
-  </div>
+  <input value="{msg}">
   <div>
     <div>{cnt}</div>
     <button onclick="plus()">+1</button>
   </div>
   <div for="i:arr"> {i} </div>
-  <button onclick="isShow()">Show?</button>
-  <div if="ifShow">
-    Now You See Me!
+  <!-- <button onclick="isShow()">Show?</button> -->
+  <div class="story">
+    <div class="conditions">
+      <button onclick="switch1()">if ({condition1})</button>
+      <button onclick="switch2()">else-if ({condition2})</button>
+    </div>
+    <div class="result">
+      <div if="condition1">Everyone Love You!</div>
+      <div else-if="condition2">Some People Love You!</div>
+      <div else>I Love You!</div>
+    </div>
   </div>
   <div>
     <a href="https://github.com/CoderSerio/Mud.js" target="_blank">Learn About More</a>
@@ -22,8 +27,11 @@
   const plus = () => {
     mud.data.cnt ++
   }
-  const isShow = ()=>{
-    mud.data.ifShow = !mud.data.ifShow
+  const switch1 = () => {
+    mud.data.condition1 = !mud.data.condition1
+  }
+  const switch2 = () => {
+    mud.data.condition2 = !mud.data.condition2
   }
 </script>
 

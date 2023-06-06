@@ -1,5 +1,11 @@
 # @trickle/mud.js
 
+## 1.3.0
+
+### Minor Changes
+
+- 6e359bc: 支持 else-if 与 else
+
 ## 1.2.1
 
 ### Patch Changes

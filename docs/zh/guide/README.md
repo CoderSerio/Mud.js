@@ -36,6 +36,14 @@ npm run dev
 > 目前提供了UMD, CJS和ESM三种模块化类型的包！
 
 <CodeGroup>
+<CodeGroupItem title="NPM">
+  
+```bash
+npm install @trickle/mud.js
+```
+
+</CodeGroupItem>
+
 <CodeGroupItem title="PNPM" active>
 
 ```bash
@@ -52,13 +60,6 @@ yarn add @trickle/mud.js
 
 </CodeGroupItem>
 
-<CodeGroupItem title="NPM">
-  
-```bash
-npm install @trickle/mud.js
-```
-
-</CodeGroupItem>
 </CodeGroup>
 
 ## 基础能力
@@ -94,7 +95,7 @@ npm install @trickle/mud.js
 </CodeGroupItem>
 </CodeGroup>
 
-上述代码将在`window`对象上创建一个实例，可以通过`window.mud`对其进行访问。
+上述代码将在`window`对象上创建一个`mud`实例，可以通过`window.mud`对其进行访问。
 
 其中，`el`表示被选中的`DOM`节点，该节点下的所有子节点都将获得`Mud.js`提供的能力。
 
@@ -158,7 +159,7 @@ npm install @trickle/mud.js
 
 #### 条件渲染
 
-像许多常见的编程语言一样使用`if`语句对渲染进行控制:
+像许多常见的编程语言一样使用`if`, `else-if`和`else`关键字对渲染进行控制:
 
 <CodeGroup>
 <CodeGroupItem title="index.html">
@@ -183,16 +184,14 @@ npm install @trickle/mud.js
 
 <script>
   const isShow = ()=>{
-    window.mud.data.ifShow = !window.mud.data.ifShow
+    mud.data.ifShow = !mud.data.ifShow
   }
 </script>
 ```
 </CodeGroupItem>
 </CodeGroup>
 
-或许刚入门的开发者对上述代码中存在两个`<script>`感到困惑——这是因为`DOM`中无法直接获取到第一个`ESM`模块中定义的函数，所以需要再额外加上一个`UMD`模块来提供这个函数。
-
-> 不久后的未来会支持`else-if`和`else`！
+或许刚入门的开发者对上述代码中存在两个`<script>`感到困惑——这是因为第一个`<script>`为`ESM`模块, `DOM`元素中无法直接获取到其中的函数，所以需要再加上一个`UMD`模块来提供需要的函数。
 
 #### 循环渲染
 

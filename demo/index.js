@@ -3,7 +3,7 @@ import Mud from '../lib/esm/index.esm.js';
 new Mud({
   el: '#app',
   data: {
-    msg: 'Hello',
+    msg: 'Hello Mud!',
     cnt: 1,
   },
   components: {
@@ -13,3 +13,4 @@ new Mud({
     console.log(mud.data.msg);
   }
 });
+
