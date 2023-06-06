@@ -16,8 +16,5 @@ new Mud({
   onMount: () => {
     console.log(mud.data.msg);
   }
-  onMount: () => {
-    console.log(mud.data.msg);
-  }
 });
 
