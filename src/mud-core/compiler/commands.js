@@ -44,7 +44,30 @@ export const handleContentMustache = (mud, node, text) => {
 }
 };
 
+export const handleFor = (mud, node, attribute) => {
+  const { name, value } = attribute;
+  if (name === 'for') {
+    const [iterator, dataKey] = value.split(':').map(item => item?.trim());
+    const forValue = mud.data[dataKey];
+    const reg = new RegExp(`\{${iterator}\}`);
+    const content = `${node.innerHTML}`;
 
+    const handleUpdate = (forValue, node) => {
+      const allNewContent = forValue?.reduce((all, item) => {
+        let newContent = content;
+        const matchRes = content.match(reg);
+        if (matchRes) {
+          newContent = content.replace(reg, item);
+        }
+        return all + newContent;
+      }, '');
+      node.innerHTML = allNewContent;
+    };
+
+    new Viewer(mud, dataKey, handleUpdate, node);
+    handleUpdate(forValue, node);
+  }
+};
 export const handleIf = (mud, node, attribute) => {
   const { name, value } = attribute;
   let ifNodeList = null
