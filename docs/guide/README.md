@@ -191,7 +191,8 @@ Just like many common programming languages, you can control the rendering using
 </CodeGroupItem>
 </CodeGroup>
 
-#### 循环渲染
+#### List Rendering
+
 Similarly, `Mud.js` provides the `for` statement to handle repetitive structures with a large number of iterations.
 
 <CodeGroup>
@@ -218,8 +219,11 @@ Similarly, `Mud.js` provides the `for` statement to handle repetitive structures
 > In the near future, `Mud.js` will also support accessing the index of the iteration.
 
 ### Components
-#### Basic Competence
-Just like encapsulating reusable code into functions, in Mud.js, you can create multiple `HTML` files and easily use them as needed.
+#### Basic Usage
+Just like encapsulating reusable code into functions, with `Mud.js`, you can create multiple `HTML` files and easily reuse and combine them.
+
+> click the tab below to show different HTML file content
+
 <CodeGroup>
 <CodeGroupItem title="index.html">
 

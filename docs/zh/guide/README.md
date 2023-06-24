@@ -225,7 +225,9 @@ yarn add @trickle/mud.js
 
 #### 基本使用
 
-就像是把能复用的代码封装成函数一样——创建多个`html`文件，然后非常简单地使用它们:
+就像是把能复用的代码封装成函数一样——创建多个`html`文件，然后非常简单地复用并组合它们！
+
+> 点击下方标签页可以显示不同的HTML文件内容
 
 <CodeGroup>
 <CodeGroupItem title="index.html">
