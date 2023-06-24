@@ -29,8 +29,6 @@ mud-cli create <name>
 
 
 
-
-
 ## Development
 When developing Mud.js, Here are some usual methods to make program execution result more intuitive:
 

@@ -1,5 +1,11 @@
 # @trickle/mud.js
 
+## 1.3.1-beta.0
+
+### Patch Changes
+
+- optimize code about the if command
+
 ## 1.3.0
 
 ### Minor Changes
