@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CoderSerio/mud.git"
+    "url": "git+https://github.com/CoderSerio/mud.js.git"
   },
   "keywords": [
     "ui-build",
@@ -30,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/CoderSerio/mud/issues"
   },
-  "homepage": "https://coderserio.github.io/mud/src/index.html",
+  "homepage": "https://coderserio.github.io/Mud.js",
   "publishConfig": {
     "access": "public"
   },
