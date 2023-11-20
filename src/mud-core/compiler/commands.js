@@ -1,6 +1,7 @@
 import Viewer from "../viewer/viewer.js";
-import { createCommentNode, addIfNodeList, returnNode } from "./utils.js";
+import { updateIfNodeList, restoreValue, batchUpdateComment } from "./utils.js";
 import { useDataValue } from '../common/utils.js';
+
 export const handleAttributeMustache = (mud, node, attribute) => {
   const { name: attKey, value: attValue } = attribute;
   if (attKey === 'props') {
@@ -68,136 +69,54 @@ export const handleFor = (mud, node, attribute) => {
     handleUpdate(forValue, node);
   }
 };
+
 export const handleIf = (mud, node, attribute) => {
   const { name, value } = attribute;
   let ifNodeList = null;
+  const oldList = [];
   if (name === "if") {
-    ifNodeList = addIfNodeList(node, name, value);
-    //获取实际的逻辑列表
+    ifNodeList = updateIfNodeList(node, name, value);
   } else {
     return;
   }
-  let myMap = new Map();
+  const isCommentedMap = new Map();
   const handleIfUpdate = (ifNodeList) => {
-    let num = ifNodeList.length;
-    if (ifNodeList[num - 1].name != "else") {
-      for (let key = 0; key < num; key++) {
-        const ifValue = mud.data[ifNodeList[key].value];
-        //ifValue为每一项的值
-        if (key === 0) {
-          //判断if
-          if (ifValue) {
-            if (myMap.get(oldList[key])) {
-              returnNode(ifNodeList[key].node, oldList[key]);
-              myMap.set(oldList[key], false);
-              //恢复为原值并修改记录表状态
-            }
-            //判断自己是否被注释，如果是则显示
-            for (let i = 1; i < num; i++) {
-              oldList[i] = createCommentNode(ifNodeList[i].node, oldList[i]);
-              myMap.set(oldList[i], true);
-            }
-            break;
-            //其余全部注释
-          }
-          else {
-            oldList[key] = createCommentNode(ifNodeList[key].node, oldList[key]);
-            myMap.set(oldList[key], true);
-            //注释自己
-          }
-        }
-        else {
-          if (ifValue) {
-            if (myMap.get(oldList[key])) {
-              returnNode(ifNodeList[key].node, oldList[key]);
-              myMap.set(oldList[key], false);
-            }
-
-            for (let i = key + 1; i < num; i++) {
-              // createCommentNode(ifNodeList[i].node)
-              oldList[i] = createCommentNode(ifNodeList[i].node, oldList[i]);
-              myMap.set(oldList[i], true);
-            }
-            break;
-            //其余全部注释
-          }
-          else {
-            oldList[key] = createCommentNode(ifNodeList[key].node, oldList[key]);
-            myMap.set(oldList[key], true);
-            // createCommentNode(ifNodeList[key].node);
-            //注释自己
-          }
-        }
-
+    const len = ifNodeList.length;
+    if (ifNodeList[len - 1].name !== "else") {
+      for (let key = 0; key < len; key++) {
+        const [ifValue] = useDataValue(mud, ifNodeList[key].value);
+        const breakFlag = batchUpdateComment(ifValue, isCommentedMap, ifNodeList, oldList, key, key + 1);
+        if (breakFlag) break;
       }
     } else {
-      for (let key = 0; key < num; key++) {
-        const ifValue = mud.data[ifNodeList[key].value];
-        //ifValue为每一项的值
-        if (key === 0) {
-          //判断if
-          if (ifValue) {
-            if (myMap.get(oldList[key])) {
-              returnNode(ifNodeList[key].node, oldList[key]);
-              myMap.set(oldList[key], false);
-              //恢复为原值并修改记录表状态
-            }
-            //判断自己是否被注释，如果是则显示
-            for (let i = 1; i < num; i++) {
-              oldList[i] = createCommentNode(ifNodeList[i].node, oldList[i]);
-              myMap.set(oldList[i], true);
-            }
-            break;
-            //其余全部注释
+      for (let key = 0; key < len; key++) {
+        const [ifValue] = useDataValue(mud, ifNodeList[key].value);
+        if (key === len - 1) {
+          if (isCommentedMap.get(oldList[key])) {
+            restoreValue(ifNodeList[key].node, oldList[key]);
+            isCommentedMap.set(oldList[key], false);
           }
-          else {
-            oldList[key] = createCommentNode(ifNodeList[key].node, oldList[key]);
-            myMap.set(oldList[key], true);
-            //注释自己
-          }
-        }
-        else if (key === num - 1) {
-          if (myMap.get(oldList[key])) {
-            returnNode(ifNodeList[key].node, oldList[key]);
-            myMap.set(oldList[key], false);
-          }
-          //判断else
           break;
+        } else {
+          const breakFlag = batchUpdateComment(ifValue, isCommentedMap, ifNodeList, oldList, key, key + 1);
+          if (breakFlag) break;
         }
-        else {
-          if (ifValue) {
-            if (myMap.get(oldList[key])) {
-              returnNode(ifNodeList[key].node, oldList[key]);
-              myMap.set(oldList[key], false);
-            }
-
-            for (let i = key + 1; i < num; i++) {
-              // createCommentNode(ifNodeList[i].node)
-              oldList[i] = createCommentNode(ifNodeList[i].node, oldList[i]);
-              myMap.set(oldList[i], true);
-            }
-            break;
-            //其余全部注释
-          }
-          else {
-            oldList[key] = createCommentNode(ifNodeList[key].node, oldList[key]);
-            myMap.set(oldList[key], true);
-            // createCommentNode(ifNodeList[key].node);
-            //注释自己
-          }
-        }
-
       }
-
     }
   };
-  // new Viewer(mud, value, handleIfUpdate1, node);
-  for (let i = 0; i < ifNodeList.length; i++) {
-    new Viewer(mud, ifNodeList[i].value, handleIfUpdate, ifNodeList[i].node, ifNodeList, i);
-  }
-  let oldList = Array(ifNodeList.length);
+  ifNodeList.forEach((ifNode, index) => {
+    new Viewer(
+      mud,
+      ifNodeList[index].value,
+      handleIfUpdate,
+      ifNodeList[index].node,
+      ifNodeList,
+      index
+    );
+  });
   handleIfUpdate(ifNodeList);
 };
+
 export const handleComponent = (mud, node) => {
   const componentName = node.tagName?.toLowerCase();
   const url = mud?.components?.[componentName];

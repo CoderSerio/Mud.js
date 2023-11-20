@@ -2,13 +2,13 @@ import Publisher from "../publisher/publisher.js";
 import { isChanged } from "./utils.js";
 import { useDataValue, clone } from "../common/utils.js";
 class Viewer {
-  constructor(mud, dataKey, updateHandler, node,ifNodeList,num) {
+  constructor(mud, dataKey, updateHandler, node, ifNodeList, ifNodeIndex) {
     this.mud = mud;
     this.dataKey = dataKey;
     this.updateHandler = updateHandler;
     this.node = node;
-    this.ifNodeList = ifNodeList
-    this.num = num
+    this.ifNodeList = ifNodeList;
+    this.ifNodeIndex = ifNodeIndex;
 
     Publisher.viewer = this;
     this.oldValue = clone(useDataValue(mud, dataKey)[0]);
@@ -20,19 +20,17 @@ class Viewer {
     if (!isChanged(this.oldValue, newValue)) {
       return;
     }
-    if(this.ifNodeList){
-    this.oldValue = newValue;
-    let datakey = this.dataKey
-    this.ifNodeList[this.num].datakey= newValue
+    if (this.ifNodeList) {
+      this.oldValue = newValue;
+      // this.ifNodeList[this.ifNodeIndex].datakey = newValue;
     }
-    //针对if节点列表的处理
     if (this.node)
-    this.updateHandler(this.ifNodeList);
-    else{
+      this.updateHandler(this.ifNodeList);
+    else {
       this.oldValue = clone(newValue);
       this.updateHandler(newValue, this.node);
     }
-   
+
   }
 }
 

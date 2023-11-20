@@ -2,7 +2,7 @@
 <h3 align="center"> Mini UI-Build Dependence </h3>
 <br/>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.2.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.3.1-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
@@ -26,8 +26,6 @@ npm i @trickle/mud-cli -g
 # Create a mud project
 mud-cli create <name>
 ```
-
-
 
 
 

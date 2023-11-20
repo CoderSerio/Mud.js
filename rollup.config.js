@@ -17,12 +17,12 @@ export default {
       format: 'esm',
       footer,
     },
-    {
-      file: pkg.main,
-      format: 'cjs',
-      exports: "auto",
-      footer,
-    },
+    // {
+    //   file: pkg.main,
+    //   format: 'cjs',
+    //   exports: "auto",
+    //   footer,
+    // },
     {
       file: pkg.browser,
       format: 'umd',

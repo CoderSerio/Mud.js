@@ -17,6 +17,7 @@ class Compiler {
     const childNodesList = Array.from(childNodes);
 
     childNodesList.forEach((node) => {
+      // TODO: replace pure number with enum
       if (node.nodeType === 1) {
         this.compileForElement(node);
       } else if (node.nodeType === 3) {
