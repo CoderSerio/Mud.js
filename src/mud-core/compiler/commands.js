@@ -38,6 +38,9 @@ export const handleContentMustache = (mud, node, text) => {
       return;
     }
     const handleUpdate = (newValue) => {
+        if(typeof newValue === 'object'){
+            newValue = JSON.stringify(newValue);
+        }
       node.textContent = text.replace(reg, newValue);
     };
     new Viewer(mud, dataKey, handleUpdate);
