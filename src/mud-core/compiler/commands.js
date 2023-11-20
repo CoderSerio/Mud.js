@@ -33,10 +33,14 @@ export const handleContentMustache = (mud, node, text) => {
   const matchRes = text.match(reg);
   if (matchRes) {
     const dataKey = matchRes[1];
-    const [dataValue] = useDataValue(mud, dataKey);
+    let [dataValue] = useDataValue(mud, dataKey);
     if (dataValue === undefined) {
       return;
     }
+    else if(typeof dataValue === "object"){
+      dataValue =  JSON.stringify(dataValue)
+    }
+   
     const handleUpdate = (newValue) => {
       node.textContent = text.replace(reg, newValue);
     };

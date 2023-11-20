@@ -5,6 +5,10 @@ new Mud({
   data: {
     msg: 'Hello Mud!',
     cnt: 1,
+    test:{
+      name:"ljj",
+      age:12
+    }
   },
   components: {
     home: 'components/home/index.html',
