@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="VuePress 2.0.0-beta.61">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/16.png"><link rel="icon" type="image/png" sizes="64x64" href="/images/icons/64.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="application-name" content="Mud"><meta name="apple-mobile-web-app-title" content="Mud"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png"><link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#3eaf7c"><meta name="msapplication-TileColor" content="#3eaf7c"><meta name="theme-color" content="#3eaf7c"><title>文档 | Mud.js</title><meta name="description" content="快速构建UI的小型库">
+    <link rel="preload" href="/Mud.js/assets/style-8f24da77.css" as="style"><link rel="stylesheet" href="/Mud.js/assets/style-8f24da77.css">
+    <link rel="modulepreload" href="/Mud.js/assets/app-6686eda3.js"><link rel="modulepreload" href="/Mud.js/assets/framework-5866ffd3.js"><link rel="modulepreload" href="/Mud.js/assets/index.html-e6a6a1a1.js"><link rel="modulepreload" href="/Mud.js/assets/index.html-6475629f.js"><link rel="prefetch" href="/Mud.js/assets/index.html-864d53fc.js" as="script"><link rel="prefetch" href="/Mud.js/assets/index.html-5fd4f9ba.js" as="script"><link rel="prefetch" href="/Mud.js/assets/index.html-fd5d20d6.js" as="script"><link rel="prefetch" href="/Mud.js/assets/404.html-60b35caa.js" as="script"><link rel="prefetch" href="/Mud.js/assets/index.html-1a3bdaee.js" as="script"><link rel="prefetch" href="/Mud.js/assets/index.html-be50cadf.js" as="script"><link rel="prefetch" href="/Mud.js/assets/index.html-2aed4110.js" as="script"><link rel="prefetch" href="/Mud.js/assets/404.html-87d54bd8.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme-container"><!--[--><header class="navbar"><div class="toggle-sidebar-button" title="切换侧边栏" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a href="/Mud.js/zh/" class=""><img class="logo" src="/Mud.js/images/384.png" alt="Mud.js"><span class="site-name can-hide">Mud.js</span></a></span><div class="navbar-items-wrapper" style=""><!--[--><!--]--><nav class="navbar-items can-hide"><!--[--><div class="navbar-item"><a aria-current="page" href="/Mud.js/zh/guide/" class="router-link-active router-link-exact-active router-link-active" aria-label="文档"><!--[--><!--]--> 文档 <!--[--><!--]--></a></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="相关资源"><span class="title">相关资源</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="相关资源"><span class="title">相关资源</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a class="external-link" href="https://github.com/CoderSerio/mud-cli" rel="noopener noreferrer" target="_blank" aria-label="mud-cli"><!--[--><!--]--> mud-cli <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">在新窗口打开</span></span><!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a class="external-link" href="https://github.com/CoderSerio/mud-template" rel="noopener noreferrer" target="_blank" aria-label="mud-template"><!--[--><!--]--> mud-template <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">在新窗口打开</span></span><!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="选择语言"><span class="title">选择语言</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="选择语言"><span class="title">选择语言</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/Mud.js/guide/" class="" aria-label="English"><!--[--><!--]--> English <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a aria-current="page" href="/Mud.js/zh/guide/" class="router-link-active router-link-exact-active router-link-active" aria-label="简体中文"><!--[--><!--]--> 简体中文 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><a class="external-link" href="https://github.com/CoderSerio/Mud.js" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">在新窗口打开</span></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><button class="toggle-color-mode-button" title="切换颜色模式"><svg style="" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg style="display:none;" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><!--]--><div class="sidebar-mask"></div><!--[--><aside class="sidebar"><nav class="navbar-items"><!--[--><div class="navbar-item"><a aria-current="page" href="/Mud.js/zh/guide/" class="router-link-active router-link-exact-active router-link-active" aria-label="文档"><!--[--><!--]--> 文档 <!--[--><!--]--></a></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="相关资源"><span class="title">相关资源</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="相关资源"><span class="title">相关资源</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a class="external-link" href="https://github.com/CoderSerio/mud-cli" rel="noopener noreferrer" target="_blank" aria-label="mud-cli"><!--[--><!--]--> mud-cli <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">在新窗口打开</span></span><!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a class="external-link" href="https://github.com/CoderSerio/mud-template" rel="noopener noreferrer" target="_blank" aria-label="mud-template"><!--[--><!--]--> mud-template <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">在新窗口打开</span></span><!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="选择语言"><span class="title">选择语言</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="选择语言"><span class="title">选择语言</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/Mud.js/guide/" class="" aria-label="English"><!--[--><!--]--> English <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a aria-current="page" href="/Mud.js/zh/guide/" class="router-link-active router-link-exact-active router-link-active" aria-label="简体中文"><!--[--><!--]--> 简体中文 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><a class="external-link" href="https://github.com/CoderSerio/Mud.js" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">在新窗口打开</span></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><ul class="sidebar-items"><!--[--><li><p tabindex="0" class="sidebar-item sidebar-heading active"> <!----></p><ul style="" class="sidebar-item-children"><!--[--><li><a aria-current="page" href="/Mud.js/zh/guide/" class="router-link-active router-link-exact-active router-link-active sidebar-item active" aria-label="文档"><!--[--><!--]--> 文档 <!--[--><!--]--></a><ul style="" class="sidebar-item-children"><!--[--><li><a aria-current="page" href="/Mud.js/zh/guide/#概览" class="router-link-active router-link-exact-active sidebar-item" aria-label="概览"><!--[--><!--]--> 概览 <!--[--><!--]--></a><ul style="" class="sidebar-item-children"><!--[--><li><a aria-current="page" href="/Mud.js/zh/guide/#简介" class="router-link-active router-link-exact-active sidebar-item" aria-label="简介"><!--[--><!--]--> 简介 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/Mud.js/zh/guide/#快速开始" class="router-link-active router-link-exact-active sidebar-item" aria-label="快速开始"><!--[--><!--]--> 快速开始 <!--[--><!--]--></a><!----></li><!--]--></ul></li><li><a aria-current="page" href="/Mud.js/zh/guide/#基础能力" class="router-link-active router-link-exact-active sidebar-item" aria-label="基础能力"><!--[--><!--]--> 基础能力 <!--[--><!--]--></a><ul style="" class="sidebar-item-children"><!--[--><li><a aria-current="page" href="/Mud.js/zh/guide/#核心类" class="router-link-active router-link-exact-active sidebar-item" aria-label="核心类"><!--[--><!--]--> 核心类 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/Mud.js/zh/guide/#插值语法" class="router-link-active router-link-exact-active sidebar-item" aria-label="插值语法"><!--[--><!--]--> 插值语法 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/Mud.js/zh/guide/#渲染控制" class="router-link-active router-link-exact-active sidebar-item" aria-label="渲染控制"><!--[--><!--]--> 渲染控制 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/Mud.js/zh/guide/#组件" class="router-link-active router-link-exact-active sidebar-item" aria-label="组件"><!--[--><!--]--> 组件 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/Mud.js/zh/guide/#生命周期" class="router-link-active router-link-exact-active sidebar-item" aria-label="生命周期"><!--[--><!--]--> 生命周期 <!--[--><!--]--></a><!----></li><!--]--></ul></li><!--]--></ul></li><!--]--></ul></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="page"><!--[--><!--]--><div class="theme-default-content"><!--[--><!--]--><div><h1 id="文档" tabindex="-1"><a class="header-anchor" href="#文档" aria-hidden="true">#</a> 文档</h1><h2 id="概览" tabindex="-1"><a class="header-anchor" href="#概览" aria-hidden="true">#</a> 概览</h2><h3 id="简介" tabindex="-1"><a class="header-anchor" href="#简介" aria-hidden="true">#</a> 简介</h3><p><code>Mud.js</code>是一个用于快速构建<strong>Web UI</strong>的小型库！在语法和实现上参考了<code>Vue</code>、<code>React(JSX)</code>、<code>Svelte</code>和<code>Wujie</code>等优秀的前端库或框架，并且尽可能地降低初学者的学习成本！</p><p>只需要了解非常基本的HTML、CSS和JS知识，通过<code>Mud.js</code>即可快速构建轻型Web应用。</p><blockquote><p>是的，<code>Mud.js</code>或许就像一个熟悉的陌生人！</p></blockquote><h3 id="快速开始" tabindex="-1"><a class="header-anchor" href="#快速开始" aria-hidden="true">#</a> 快速开始</h3><p>推荐使用脚手架工具直接构建工程化模板:</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code># 安装项目脚手架
+npm i @trickle/mud-cli -g
+
+# 使用脚手架快速构建项目, 其中&lt;name&gt;是你的项目名字
+mud-cli create &lt;name&gt;
+
+# 进入创建的项目
+cd &lt;name&gt;
+
+# 安装项目所需依赖
+npm i
+
+# 启动项目
+npm run dev
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>也可以在项目单独安装<code>Mud.js</code>的核心库来满足不同的场景需求:</p><blockquote><p>目前提供了UMD, CJS和ESM三种模块化类型的包！</p></blockquote><div class="code-group"><div class="code-group__nav"><ul class="code-group__ul"><li class="code-group__li"><button class="code-group__nav-tab" ariapressed="false" ariaexpanded="false">NPM</button></li><li class="code-group__li"><button class="code-group__nav-tab code-group__nav-tab-active" ariapressed="true" ariaexpanded="true">PNPM</button></li><li class="code-group__li"><button class="code-group__nav-tab" ariapressed="false" ariaexpanded="false">YARN</button></li></ul></div><!--[--><div class="code-group-item" aria-selected="false"><!--[--><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>npm install @trickle/mud.js
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><!--]--></div><div class="code-group-item code-group-item__active" aria-selected="true"><!--[--><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>pnpm i @trickle/mud.js
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><!--]--></div><div class="code-group-item" aria-selected="false"><!--[--><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>yarn add @trickle/mud.js
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><!--]--></div><!--]--></div><h2 id="基础能力" tabindex="-1"><a class="header-anchor" href="#基础能力" aria-hidden="true">#</a> 基础能力</h2><p>接下我们会尽可能精简代码，更契合主题地介绍<code>Mud.js</code>的基本用法。</p><blockquote><p>注意！以下模块化相关代码均以ESM为例。其他模块化类型同理。</p></blockquote><h3 id="核心类" tabindex="-1"><a class="header-anchor" href="#核心类" aria-hidden="true">#</a> 核心类</h3><p><code>Mud.js</code>为开发者暴露了一个<code>Mud</code>类，开发者据此便能够使用<code>Mud.js</code>的能力，从而简化开发。</p><p>而使用的方式也很简单，只需要像下面这样:</p><div class="code-group"><div class="code-group__nav"><ul class="code-group__ul"><li class="code-group__li"><button class="code-group__nav-tab code-group__nav-tab-active" ariapressed="true" ariaexpanded="true">index.html</button></li></ul></div><!--[--><div class="code-group-item" aria-selected="false"><!--[--><div class="language-html line-numbers-mode" data-ext="html"><pre class="language-html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;Mud.js&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import Mud from &#39;@trickle/mud.js&#39;;
+  new Mud({el: &#39;#app&#39;});
+&lt;/script&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><!--]--></div><!--]--></div><p>上述代码将在<code>window</code>对象上创建一个<code>mud</code>实例，可以通过<code>window.mud</code>对其进行访问。</p><p>其中，<code>el</code>表示被选中的<code>DOM</code>节点，该节点下的所有子节点都将获得<code>Mud.js</code>提供的能力。</p><blockquote><p>接下来我们会进一步精简不必要的代码，尽可能地突出重点！</p></blockquote><h3 id="插值语法" tabindex="-1"><a class="header-anchor" href="#插值语法" aria-hidden="true">#</a> 插值语法</h3><h4 id="内容插值" tabindex="-1"><a class="header-anchor" href="#内容插值" aria-hidden="true">#</a> 内容插值</h4><p>插值语法允许在<code>HTML</code>结构中便捷地使用<code>JS</code>变量:</p><div class="code-group"><div class="code-group__nav"><ul class="code-group__ul"><li class="code-group__li"><button class="code-group__nav-tab code-group__nav-tab-active" ariapressed="true" ariaexpanded="true">index.html</button></li></ul></div><!--[--><div class="code-group-item" aria-selected="false"><!--[--><div class="language-html line-numbers-mode" data-ext="html"><pre class="language-html"><code>&lt;div id=&quot;app&quot;&gt;Say: {title}&lt;/div&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import Mud from &#39;@trickle/mud.js&#39;;
+  new Mud({
+    el: &#39;#app&#39;,
+    data: {
+      title: &#39;Hello Mud!&#39;
+    }
+  });
+&lt;/script&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><!--]--></div><!--]--></div><p>上述代码中的<code>{title}</code>将被渲染为<code>Hello Mud！</code>。当变量<code>title</code>发生改变时，渲染的内容也随之改变。</p><h4 id="属性插值" tabindex="-1"><a class="header-anchor" href="#属性插值" aria-hidden="true">#</a> 属性插值</h4><p>除了可以在<code>DOM</code>元素的内容中插值，还可以在属性中插值:</p><div class="code-group"><div class="code-group__nav"><ul class="code-group__ul"><li class="code-group__li"><button class="code-group__nav-tab code-group__nav-tab-active" ariapressed="true" ariaexpanded="true">index.html</button></li></ul></div><!--[--><div class="code-group-item" aria-selected="false"><!--[--><div class="language-html line-numbers-mode" data-ext="html"><pre class="language-html"><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;div&gt;{msg}&lt;/div&gt;
+  &lt;input type=&quot;text&quot; value=&quot;{msg}&quot;&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import Mud from &#39;@trickle/mud.js&#39;;
+  new Mud({
+    el: &#39;#app&#39;,
+    data: {
+      msg: &#39;Hello Mud!&#39;
+    }
+  });
+&lt;/script&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><!--]--></div><!--]--></div><h3 id="渲染控制" tabindex="-1"><a class="header-anchor" href="#渲染控制" aria-hidden="true">#</a> 渲染控制</h3><p><code>Mud.js</code>为<code>DOM</code>提供了一些特殊的属性，这些属性的值将自动映射到<code>Mud</code>实例的<code>data</code>上而无需再使用插值语法。</p><h4 id="条件渲染" tabindex="-1"><a class="header-anchor" href="#条件渲染" aria-hidden="true">#</a> 条件渲染</h4><p>像许多常见的编程语言一样使用<code>if</code>, <code>else-if</code>和<code>else</code>关键字对渲染进行控制:</p><div class="code-group"><div class="code-group__nav"><ul class="code-group__ul"><li class="code-group__li"><button class="code-group__nav-tab code-group__nav-tab-active" ariapressed="true" ariaexpanded="true">index.html</button></li></ul></div><!--[--><div class="code-group-item" aria-selected="false"><!--[--><div class="language-html line-numbers-mode" data-ext="html"><pre class="language-html"><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;button onclick=&quot;isShow()&quot;&gt;Show?&lt;/button&gt;
+  &lt;div if=&quot;ifShow&quot;&gt;
+    Now You See Me!
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import Mud from &#39;@trickle/mud.js&#39;;
+  new Mud({
+    el: &#39;#app&#39;,
+    data: {
+      ifShow: false
+    }
+  });
+&lt;/script&gt;
+
+&lt;script&gt;
+  const isShow = ()=&gt;{
+    mud.data.ifShow = !mud.data.ifShow
+  }
+&lt;/script&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><!--]--></div><!--]--></div><p>或许刚入门的开发者对上述代码中存在两个<code>&lt;script&gt;</code>感到困惑——这是因为第一个<code>&lt;script&gt;</code>为<code>ESM</code>模块, <code>DOM</code>元素中无法直接获取到其中的函数，所以需要再加上一个<code>UMD</code>模块来提供需要的函数。</p><h4 id="循环渲染" tabindex="-1"><a class="header-anchor" href="#循环渲染" aria-hidden="true">#</a> 循环渲染</h4><p>类似地，<code>Mud.js</code>提供了<code>for</code>语句处理大量重复的结构:</p><div class="code-group"><div class="code-group__nav"><ul class="code-group__ul"><li class="code-group__li"><button class="code-group__nav-tab code-group__nav-tab-active" ariapressed="true" ariaexpanded="true">index.html</button></li></ul></div><!--[--><div class="code-group-item" aria-selected="false"><!--[--><div class="language-html line-numbers-mode" data-ext="html"><pre class="language-html"><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;div for=&quot;i:arr&quot;&gt; {i} &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import Mud from &#39;@trickle/mud.js&#39;;
+  new Mud({
+    el: &#39;#app&#39;,
+    data: {
+      arr: [&#39;Someday&#39;, &#39;I&#39;, &#39;Will&#39;, &#39;Be&#39;, &#39;Like&#39;, &#39;You&#39;],
+    }
+  });
+&lt;/script&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><!--]--></div><!--]--></div><blockquote><p>不久后的未来还会支持对<code>下标索引</code>的获取！</p></blockquote><h3 id="组件" tabindex="-1"><a class="header-anchor" href="#组件" aria-hidden="true">#</a> 组件</h3><h4 id="基本使用" tabindex="-1"><a class="header-anchor" href="#基本使用" aria-hidden="true">#</a> 基本使用</h4><p>就像是把能复用的代码封装成函数一样——创建多个<code>html</code>文件，然后非常简单地复用并组合它们！</p><blockquote><p>点击下方标签页可以显示不同的HTML文件内容</p></blockquote><div class="code-group"><div class="code-group__nav"><ul class="code-group__ul"><li class="code-group__li"><button class="code-group__nav-tab code-group__nav-tab-active" ariapressed="true" ariaexpanded="true">index.html</button></li><li class="code-group__li"><button class="code-group__nav-tab" ariapressed="false" ariaexpanded="false">component.html</button></li></ul></div><!--[--><div class="code-group-item" aria-selected="false"><!--[--><div class="language-html line-numbers-mode" data-ext="html"><pre class="language-html"><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;component&gt;&lt;/component&gt;
+  &lt;component&gt;&lt;/component&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import Mud from &#39;@trickle/mud.js&#39;;
+  new Mud({
+    el: &#39;#app&#39;,
+    components: {
+      component: &#39;component.html&#39;
+    }
+  });
+&lt;/script&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><!--]--></div><div class="code-group-item" aria-selected="false"><!--[--><div class="language-html line-numbers-mode" data-ext="html"><pre class="language-html"><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;div&gt;{msg}&lt;/div&gt;
+  &lt;input type=&quot;text&quot; value=&quot;{msg}&quot;&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import Mud from &#39;@trickle/mud.js&#39;;
+  new Mud({
+    el: &#39;#app&#39;,
+    data: {
+      msg: &#39;Hello Mud!&#39;
+    }
+  });
+&lt;/script&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><!--]--></div><!--]--></div><p>在<code>components</code>中将另一个挂载了<code>Mud</code>实例的<code>html</code>文件注册为组件，填写组件名及其路径即可进行使用。</p><blockquote><p>该路径甚至可以是一个远程URL！</p></blockquote><h4 id="组件通信" tabindex="-1"><a class="header-anchor" href="#组件通信" aria-hidden="true">#</a> 组件通信</h4><p><code>Mud.js</code>支持父子组间直接通信，方式也非常简单——通过<code>props</code>属性向子组件传递参数，子组件的<code>Mud</code>实例的<code>data</code>会接收到这些参数，并且子组件能够直接修改父组件传递的参数:</p><div class="code-group"><div class="code-group__nav"><ul class="code-group__ul"><li class="code-group__li"><button class="code-group__nav-tab code-group__nav-tab-active" ariapressed="true" ariaexpanded="true">index.html</button></li><li class="code-group__li"><button class="code-group__nav-tab" ariapressed="false" ariaexpanded="false">component.html</button></li></ul></div><!--[--><div class="code-group-item" aria-selected="false"><!--[--><div class="language-html line-numbers-mode" data-ext="html"><pre class="language-html"><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;div&gt;{msg}&lt;/div&gt;
+  &lt;component props=&quot;{msg}&quot;&gt;&lt;/component&gt;
+  &lt;component props=&quot;{msg}&quot;&gt;&lt;/component&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import Mud from &#39;@trickle/mud.js&#39;;
+  new Mud({
+    el: &#39;#app&#39;,
+    data: { msg: &#39;hi!&#39; },
+    components: {
+      component: &#39;component.html&#39;
+    }
+  });
+&lt;/script&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><!--]--></div><div class="code-group-item" aria-selected="false"><!--[--><div class="language-html line-numbers-mode" data-ext="html"><pre class="language-html"><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;div&gt;{msg}&lt;/div&gt;
+  &lt;input type=&quot;text&quot; value=&quot;{msg}&quot;&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import Mud from &#39;@trickle/mud.js&#39;;
+  new Mud({
+    el: &#39;#app&#39;,
+    data: {
+      msg: &#39;&#39;
+    }
+  });
+&lt;/script&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><!--]--></div><!--]--></div><p>当然，支持传递多个参数以及重命名字段避免冲突:</p><div class="language-html line-numbers-mode" data-ext="html"><pre class="language-html"><code>&lt;component props=&quot;{msg, data:name}&quot;&gt;&lt;/component&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="生命周期" tabindex="-1"><a class="header-anchor" href="#生命周期" aria-hidden="true">#</a> 生命周期</h3><p>能够在特定的时刻触发指定的函数。</p><h4 id="onmount" tabindex="-1"><a class="header-anchor" href="#onmount" aria-hidden="true">#</a> onMount</h4><p>在组件挂载到<code>DOM</code>节点这一过程完成时触发:</p><div class="language-javascript line-numbers-mode" data-ext="js"><pre class="language-javascript"><code>new Mud({
+  el: &#39;#app&#39;,
+  data: {
+    msg: &#39;Hello Mud&#39;,
+  },
+  onMount: () =&gt; {
+    console.log(mud.data.msg);
+  }
+});
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!--[--><!--]--></div><footer class="page-meta"><div class="meta-item edit-link"><a class="external-link meta-item-label" href="https://github.com/CoderSerio/Mud.js/edit/main/docs/zh/guide/README.md" rel="noopener noreferrer" target="_blank" aria-label="在 GitHub 上编辑此页"><!--[--><!--]--> 在 GitHub 上编辑此页 <span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">在新窗口打开</span></span><!--[--><!--]--></a></div><div class="meta-item last-updated"><span class="meta-item-label">上次更新: </span><!----></div><div class="meta-item contributors"><span class="meta-item-label">贡献者: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: CoderSerio@2779066456@qq.com">CoderSerio</span><!--[-->, <!--]--><!--]--><!--[--><span class="contributor" title="email: 1848228664@qq.com">Tosuke</span><!----><!--]--><!--]--></span></div></footer><!----><!--[--><!--]--></main><!--]--></div><!----><!--]--></div>
+    <script type="module" src="/Mud.js/assets/app-6686eda3.js" defer></script>
+  </body>
+</html>
