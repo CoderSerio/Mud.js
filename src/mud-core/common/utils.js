@@ -26,7 +26,7 @@ export const clone = (value) => {
     } else {
       const obj = {};
       Object.keys(value)?.forEach((key) => {
-        obj[key] = clone(obj[key]);
+        obj[key] = clone(value[key]);
       });
       return obj;
     }
